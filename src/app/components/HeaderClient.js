@@ -17,7 +17,7 @@ export default function HeaderClient() {
 
     const handleClick = (event) => {
       event.preventDefault();
-      scrollToSelector(".clsAsideTagAppDown", -300);
+      scrollToSelector(".clsAsideTagAppDown", 300);
     };
 
     button.addEventListener("click", handleClick);
