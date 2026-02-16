@@ -1,0 +1,86 @@
+.clsAsideTagAppDown {
+  width: 100%;
+  background-image: url(/sitefiles/images/backgrounphoncoffee.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coverDivDown {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.7);
+}
+
+.h4DownApp {
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 45px;
+  height: 40px;
+  color: #fff;
+  font-size: 23px;
+  font-family: yekanMedium;
+  font-weight: 550;
+}
+
+.divMarkets {
+  flex-wrap: wrap;
+  width: 100%;
+  direction: rtl;
+  margin-bottom: 50px;
+}
+
+.aTagDirect,
+.aTagBazaar,
+.aTagMyket,
+.aTagWebApp {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.logosDown1,
+.logosDown2,
+.logosDown3,
+.logosDown4 {
+  width: 200px;
+  height: 60px;
+  padding: 0;
+  margin: 0 5px;
+}
+
+.logosDown3 {
+  height: 68px;
+}
+
+.logosDown4 {
+  height: 90px;
+  width: 220px;
+  margin-top: -10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .logosDown3 {
+    height: 73px;
+    width: 205px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .divMarkets {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .h4DownApp {
+    font-size: 20px;
+  }
+
+  .logosDown1,
+  .logosDown2,
+  .logosDown3,
+  .logosDown4 {
+    margin-bottom: 10px;
+  }
+}

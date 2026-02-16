@@ -1,0 +1,51 @@
+.divNavbarWebapp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 1111px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 40px;
+  margin: 0 auto;
+
+  margin-bottom: 6px;
+  background: #efbf04;
+  padding: 1px 1px;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.divNavbarWebapp button {
+  background: #8f0177;
+  color: #ececec;
+  height: 80%;
+  width: auto;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-family: sansFa;
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.pTittlWebappNavbar {
+  font-family: aaa1;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #ef3d00;
+  /* text-transform: uppercase; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+@media only screen and (max-width: 1111px) {
+  .divlTitlMain {
+    width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+.clsFooterTag {
+  flex-wrap: wrap;
+  width: 100%;
+  direction: rtl;
+  background: #272b2f;
+}
+
+.suport,
+.sotial {
+  flex-direction: column;
+  height: 200px;
+  width: 330px;
+}
+
+.h5Suport,
+.h5Sotial {
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.pSuport,
+.pSotial {
+  text-align: center;
+  color: #9e9e9e;
+  font-size: 12px;
+  width: 300px;
+  margin: 0 0 5px 0;
+}
+
+.suportApp {
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.aTagWhatsapp,
+.aTagInstagram,
+.aTagTelegram {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 10px;
+}
+
+.imgWhatsapp,
+.imgInstagram,
+.imgTelegram {
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  margin: 0 5px;
+}

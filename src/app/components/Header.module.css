@@ -1,0 +1,162 @@
+﻿.divHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 280px;
+  background-image: url(/sitefiles/images/back2.jpg);
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coverHeader {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.8);
+}
+
+.h1Home {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  direction: rtl;
+  font-family: RegsansDN;
+  text-align: center;
+  color: white;
+  top: 15px;
+  font-size: 30px;
+  text-shadow:
+    1px 1px 2px black,
+    0 0 25px rgb(190, 228, 21),
+    0 0 5px darkblue;
+}
+
+.brandText {
+  font-size: 26px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-top: 3px;
+  display: inline-flex;
+  gap: 2px;
+}
+
+.brandLetter {
+  position: relative;
+  display: inline-block;
+  animation:
+    brandFloat 2.8s ease-in-out infinite,
+    brandPulse 3.6s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+.brandText span:nth-child(odd) {
+  color: #adff00;
+  text-shadow:
+    0 2px 0 #3905e3,
+    0 0 12px rgba(57, 5, 227, 0.45);
+}
+
+.brandText span:nth-child(even) {
+  color: #7c4dff;
+  text-shadow:
+    0 2px 0 #dfdfdf,
+    0 0 12px rgba(223, 223, 223, 0.55);
+}
+
+.brandText span:nth-child(1) {
+  animation-delay: 0s, 0.2s;
+}
+.brandText span:nth-child(2) {
+  animation-delay: 0.1s, 0.3s;
+}
+.brandText span:nth-child(3) {
+  animation-delay: 0.2s, 0.4s;
+}
+.brandText span:nth-child(4) {
+  animation-delay: 0.3s, 0.5s;
+}
+.brandText span:nth-child(5) {
+  animation-delay: 0.4s, 0.6s;
+}
+.brandText span:nth-child(6) {
+  animation-delay: 0.5s, 0.7s;
+}
+.brandText span:nth-child(7) {
+  animation-delay: 0.6s, 0.8s;
+}
+.brandText span:nth-child(8) {
+  animation-delay: 0.7s, 0.9s;
+}
+
+@keyframes brandFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  35% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+
+  65% {
+    transform: translateY(4px) rotate(2deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes brandPulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.25);
+  }
+}
+
+.btDownHeader {
+  height: 35px;
+  width: 140px;
+  bottom: 15px;
+  margin-top: 45px;
+  border-radius: 17px;
+  border: 1px solid #ffffff;
+  color: rgb(255, 255, 255);
+  background: #4caf50;
+  background: #8f0177;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 800px) {
+  .divHeader {
+    background-image: url(/sitefiles/images/back2phon.jpg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .h1Home {
+    font-size: 22px;
+  }
+
+  .divHeader {
+    height: 250px;
+  }
+
+  .brandText {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .h1Home {
+    font-size: 16px;
+  }
+}

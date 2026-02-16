@@ -1,0 +1,302 @@
+/* :global(html),
+:global(body),
+:global(#__next) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+} */
+
+.pageEachComplxMain {
+  /* background: linear-gradient(180deg, #ffffff 0%, #e7d404 45%, #d20692 100%); */
+  padding: 0;
+  margin: 0 auto;
+  width: 100vw;
+  max-width: 1111px;
+  height: 100vh;
+  background-color: chocolate;
+}
+.containerEachComplxMain {
+  width: 100%;
+  height: 100%;
+  background: rgb(212, 5, 5);
+  overflow-x: hidden;
+}
+
+.divEachComplxMain {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto; /* بالا: divSvLevelsBtn, وسط: divhzSvLevels, پایین: divSsdsdsd */
+  justify-content: center;
+  position: fixed;
+  top: 40px;
+  bottom: 40px;
+  width: 100%;
+  max-width: 1111px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  background: #0ae095;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.divEachComplxMain::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+.divEachComplxMain::-webkit-scrollbar-track {
+  background: #595555;
+}
+.divEachComplxMain::-webkit-scrollbar-thumb {
+  background: #efbf04;
+}
+
+.gridHidden {
+  opacity: 0;
+  transform: translateX(-24px);
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.divSvLevelsBtn {
+  grid-row: 1;
+  position: static;
+  top: 3px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  background-color: #d20692;
+  padding: 5px;
+  margin: 5px;
+  /* visibility: hidden; */
+}
+.divSvLevelsBtn::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.divSvLevelsBtn::-webkit-scrollbar-track {
+  background: #595555;
+}
+.divSvLevelsBtn::-webkit-scrollbar-thumb {
+  background: #efbf04;
+}
+
+.btnLevvel {
+  width: auto;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  color: rgb(33, 33, 33);
+  font-size: 30px;
+  font-family: Helvetica;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #efbf04;
+  text-align: center;
+  border: 3px solid #8f0177;
+  margin: 0;
+  padding: 4px 7px;
+  flex: 0 0 auto;
+  /* gap: 0; */
+}
+.btnLevvel + .btnLevvel {
+  margin-left: -1px;
+}
+.divSvLevelsBtn .btnLevvel:first-child {
+  /* استایل دکمه اول */
+  background-color: #8f0177;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #eeeded;
+}
+.divSvLevelsBtn .btnLevvel:last-child {
+  /* استایل دکمه آخر */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.divSsdsdsd {
+  grid-row: 3;
+  position: static;
+  bottom: 2px;
+  left: 10px;
+  right: 10px;
+  /* left: 50%;
+  transform: translate(-50%, -50%); */
+  background-color: #e607f2;
+  padding: 10px 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* aaaa */
+.divhzSvLevels {
+  grid-row: 2;
+  position: fixed;
+  left: 0;
+  top: 5px;
+  bottom: 15vh;
+  display: inline-flex;
+  flex-direction: row;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+  padding: 0;
+  background-color: transparent;
+  background-color: #efbf04;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  /* visibility: hidden; */
+}
+
+.divSvEachLevel {
+  position: relative;
+  width: 1111px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  background-color: transparent;
+  overflow: hidden;
+  /* overscroll-behavior: contain; */
+}
+
+.h3ExpainComplx {
+  color: rgb(33, 33, 33);
+  font-size: 25px;
+  font-weight: 800;
+  font-family: sansFa;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 500px;
+  top: 0;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 99px;
+  padding: 5px;
+  margin: 0 auto;
+  white-space: normal;
+  line-height: 1.2em;
+}
+.h3ExpainComplx .secondLine {
+  font-size: 0.7em; /* RelativeSize(0.7) */
+}
+.h1OnlyForSs {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.divSvLessOfLevel {
+  position: relative;
+  background-color: transparent;
+  background-color: #7f7a75e0;
+  width: 1100px;
+  /* left: 0; */
+  /* right: 0; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 3px;
+}
+
+.divLesG3Gram {
+  background-color: transparent;
+  background-color: #8f0177;
+  width: 100%;
+  /* height: 13vw; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.graBtn {
+  width: 28vw;
+  height: 12vw;
+  background-color: #314149;
+  color: white;
+  border: 0;
+  border-top-left-radius: 6vw;
+  border-bottom-left-radius: 6vw;
+  padding: 0;
+  margin-right: 2vw;
+  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
+}
+
+.lesBtn {
+  width: 39vw;
+  height: 12vw;
+  background-color: #ffffff;
+  color: rgb(9, 9, 9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 0.3vw solid #03a9f4;
+  border-top-right-radius: 6vw;
+  border-bottom-right-radius: 6vw;
+  padding: 0;
+  margin-right: 4vw;
+  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
+  font-size: 5vw;
+}
+
+.iconPlayLes {
+  color: #ff4145;
+  font-size: 9vw;
+  font-weight: 550;
+  margin-left: 2vw;
+  font-family: Fontmatr;
+}
+
+.g3Btn {
+  width: 20vw;
+  height: 12vw;
+  background-color: #00bcd4;
+  color: white;
+  border: 0;
+  border-radius: 6vw;
+  padding: 0;
+  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
+  text-shadow: 0vw 0.1vw 1vw #1c1c1c;
+}
+
+@media only screen and (max-width: 1111px) {
+  .pageEachComplxMain {
+    width: 100vw;
+  }
+  .containerEachComplxMain {
+    width: 100%;
+  }
+  .divSvEachLevel {
+    width: 100vw;
+  }
+  .divSvLessOfLevel {
+    width: 100vw;
+  }
+}

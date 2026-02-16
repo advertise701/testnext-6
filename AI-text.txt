@@ -1,0 +1,296 @@
+در اپ b4a با httpjob به آدرس learningvally.ir/zzaa/getComplex.php با دسور  poststring یه سری داده می فرستم در php هم با کدهای زیر
+<?php
+// session_start();
+session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => true,
+    'use_strict_mode' => true,
+    // 'cookie_lifetime' => 300, // انقضای کوکی پس از 300 ثانیه
+    // 'gc_maxlifetime' => 300, // حذف فایل‌های سشن پس از 310 ثانیه
+    // 'cookie_samesite' => 'Strict' // جلوگیری از ارسال کوکی در درخواست‌های cross-site
+    'cookie_samesite' => 'None'   // ⭐ مهم برای cross-domain
+]);
+
+// header('Access-Control-Allow-Origin: *'); /// اشتباه رایج
+// // اگر چند دامنه داری:
+// $allowed = [
+//     "https://your-nextjs-domain.vercel.app",
+//     "https://www.yourdomain.com"
+// ];
+// if (in_array($_SERVER['HTTP_ORIGIN'] ?? '', $allowed)) {
+//     header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+// }
+// header("Access-Control-Allow-Credentials: true");
+
+// header('Access-Control-Allow-Origin: https://learningvalley.ir'); // جایگزین با دامنه واقعی
+header("Access-Control-Allow-Origin: https://test-next-5.vercel.app");
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json; charset=utf-8');
+
+
+
+
+// غیرفعال کردن نمایش خطاها در خروجی
+// ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+ini_set('error_log', __DIR__ . '/logs/php_errors.log');
+
+
+// اعتبارسنجی و فیلتر ورودی‌ها
+$numbery = isset($_POST['numbery']) ? htmlspecialchars($_POST['numbery'], ENT_QUOTES, 'UTF-8') : null;
+$emailyTriim = isset($_POST['emailyTriim']) ? htmlspecialchars($_POST['emailyTriim'], ENT_QUOTES, 'UTF-8') : null;
+$emailyFull = isset($_POST['emailyFull']) ? htmlspecialchars($_POST['emailyFull'], ENT_QUOTES, 'UTF-8') : null;
+$timSigny = isset($_POST["timSigny"]) ? filter_var($_POST["timSigny"], FILTER_VALIDATE_INT) : null;
+$serialy = isset($_POST['serialy']) ? htmlspecialchars($_POST['serialy'], ENT_QUOTES, 'UTF-8') : null;
+$advertisId = isset($_POST['advertisId']) ? htmlspecialchars($_POST['advertisId'], ENT_QUOTES, 'UTF-8') : null;
+$osName = isset($_POST['osName']) ? htmlspecialchars($_POST['osName'], ENT_QUOTES, 'UTF-8') : null;
+$manufactur = isset($_POST['manufactur']) ? htmlspecialchars($_POST['manufactur'], ENT_QUOTES, 'UTF-8') : null;
+$model = isset($_POST['model']) ? htmlspecialchars($_POST['model'], ENT_QUOTES, 'UTF-8') : null;
+$screenWidth = isset($_POST["screenWidth"]) ? filter_var($_POST["screenWidth"], FILTER_VALIDATE_INT) : null;
+$verSdk = isset($_POST["verSdk"]) ? htmlspecialchars($_POST["verSdk"], ENT_QUOTES, 'UTF-8') : null;  // اگر این به عنوان عدد بخواد محاسبه شود ابتدا در نسخه وب اپلیکیشن اصلاح شود. اینجا به صورت رشته ذخیره می شود
+$nameMarket = isset($_POST['nameMarket']) ? htmlspecialchars($_POST['nameMarket'], ENT_QUOTES, 'UTF-8') : null;
+$appVerCod = isset($_POST["appVerCod"]) ? filter_var($_POST["appVerCod"], FILTER_VALIDATE_INT) : null;
+// $lastTimeUpdaty = isset($_POST["lastTimeUpdaty"]) ? filter_var($_POST["lastTimeUpdaty"], FILTER_VALIDATE_INT) : null;
+$lastTimeUpdaty = isset($_POST["lastTimeUpdaty"]) ? (int) $_POST["lastTimeUpdaty"] : null;
+
+
+$recAray = [];
+
+// -------------------- مدیریت خطاهای ورودی --------------------
+$errors = [];
+if ($numbery === null || $numbery === '') {
+    $errors[] = "فیلد numbery الزامی است.";
+}
+if ($emailyTriim === null || $emailyTriim === '') {
+    $errors[] = "فیلد emailyTriim الزامی است.";
+}
+if ($timSigny === false || $timSigny === null) {
+    $errors[] = "فیلد timSigny باید عدد صحیح معتبر باشد.";
+}
+if ($advertisId === null || $advertisId === '') {
+    $errors[] = "فیلد advertisId الزامی است.";
+}
+if ($lastTimeUpdaty === false || $lastTimeUpdaty === null) {
+    $errors[] = "فیلد lastTimeUpdaty باید عدد صحیح معتبر باشد.";
+}
+// اگر خطایی وجود داشت → خروجی JSON
+if (!empty($errors)) {
+    error_log("Error: inputError Data Complx - " . json_encode($errors, JSON_UNESCAPED_UNICODE));
+    $recAray["status"] = "inputError";
+    $recAray["mesagy2"] = "خطا اعتبارسنجی.";
+    // $recAray["mesagy2"] = $errors;
+    echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+    return;
+}
+
+if (time() - 60 < $lastTimeUpdaty) {
+    $recAray["status"] = "vv3";
+    $recAray["mesagy2"] = "یک ساعت دیگر امتحان کنید.";
+    echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+    return;
+}
+
+// بارگذاری فایل .env
+try {
+    $env_file = __DIR__ . '/.env';
+    $env_vars = [];
+    if (file_exists($env_file)) {
+        $lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos($line, '=') !== false && !str_starts_with($line, '#')) {
+                list($key, $value) = explode('=', $line, 2);
+                $env_vars[trim($key)] = trim($value);
+            }
+        }
+    } else {
+        error_log("Error: noEnvError");
+        $recAray["status"] = "noEnvError";
+        $recAray["mesagy2"] = "خطا پیکربندی سرور. به پشتیبانی پیام دهید.";
+        echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+        return;
+    }
+} catch (Exception $e) {
+    error_log("Env Error: " . $e->getMessage());
+    $recAray["status"] = "envError";
+    $recAray["mesagy2"] = "خطا پیکربندی سرور. به پشتیبانی پیام دهید.";
+    echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+    return;
+}
+
+
+
+$noombTbl = 't' . $numbery;
+try {
+    $chkeee = trim($advertisId) . trim($manufactur) . trim($model) . trim($timSigny);
+    if (!isset($_SESSION['csrf_ConfirmPhone']) || $_SESSION['csrf_ConfirmPhone'] !== $chkeee) {
+        $karServername = $env_vars['DB_HOST_Karbaran'];
+        $karDbname = $env_vars['DB_NAME_Karbaran'];
+        $karUsername = $env_vars['DB_USER_Karbaran'];
+        $karPassword = $env_vars['DB_PASS_USER_Karbaran'];
+        $connectKarbar = new PDO("mysql:host=$karServername;dbname=$karDbname;charset=utf8mb4", $karUsername, $karPassword);
+        // $connectKarbar = new PDO("mysql:host=$karServername;dbname=$karDbname", $karUsername, $karPassword);
+        $connectKarbar->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $queryKarbarinfo = "SELECT idUserApp, blocky, advertisId1, advertisId2, manufactur1, manufactur2, model1, model2, timSigny1, timSigny2 FROM tblAppUsers WHERE (numbery = :numbery OR emailyTriim = :emailyTriim) AND blocky = 0";
+        $queryKarbarReady = $connectKarbar->prepare($queryKarbarinfo);
+        $queryKarbarReady->execute([':numbery' => $noombTbl, ':emailyTriim' => $emailyTriim]);
+        $infoData = $queryKarbarReady->fetch(PDO::FETCH_ASSOC);
+
+        if ($infoData) {
+            $heeedksk1 = trim($infoData['advertisId1']) . trim($infoData['manufactur1']) . trim($infoData['model1']) . trim($infoData['timSigny1']);
+            $heeedksk2 = trim($infoData['advertisId2']) . trim($infoData['manufactur2']) . trim($infoData['model2']) . trim($infoData['timSigny2']);
+        }
+
+        if ($infoData && ($chkeee == $heeedksk1 || $chkeee == $heeedksk2)) {
+            // بازتولید توکن CSRF پس از تغییر سشن (اختیاری)
+            // session_regenerate_id(true);
+            $_SESSION['csrf_ConfirmPhone'] = $chkeee;
+            $_SESSION['idUserApp'] = $infoData['idUserApp'];
+            if ($chkeee == $heeedksk1) {
+                $_SESSION['wich_device'] = 1;
+            } else {
+                $_SESSION['wich_device'] = 2;
+            }
+        } else {
+            $connectKarbar = null;
+            $recAray["status"] = "vv5";
+            $recAray["mesagy2"] = "ورود مجدد به اکانت";
+            echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+            return;
+        }
+    }
+
+    $dataComplexServername = $env_vars['DB_HOST_DataOfComplex'];
+    $dataComplexDbname = $env_vars['DB_NAME_DataOfComplex'];
+    $dataComplexUsername = $env_vars['DB_USER_DataOfComplex'];
+    $dataComplexPassword = $env_vars['DB_PASS_USER_DataOfComplex'];
+    $connectDataComplx = new PDO("mysql:host=$dataComplexServername;dbname=$dataComplexDbname;charset=utf8mb4", $dataComplexUsername, $dataComplexPassword);
+    //// برگرداندن مجموعه‌های آموزش جدید و بروزشده
+    if ($lastTimeUpdaty == 0) {
+        $queryDataCompx = "SELECT * FROM tblComplexesInfo WHERE isVisibl = 1 AND blocky = 0 AND lastTimeRecordUpdaty >= :lastTimeUpdaty ORDER BY idOrderComplx ASC";
+    } else {
+        $queryDataCompx = "SELECT * FROM tblComplexesInfo WHERE lastTimeRecordUpdaty > :lastTimeUpdaty ORDER BY idOrderComplx ASC";
+    }
+    $queryDataCompx = $connectDataComplx->prepare($queryDataCompx);
+    $isSuccess = $queryDataCompx->execute([
+        ':lastTimeUpdaty' => $lastTimeUpdaty
+    ]);
+    if ($isSuccess) {
+        // چک کردن تعداد ردیف‌ها
+        $num_rows = $queryDataCompx->rowCount();
+        if ($num_rows > 0) {
+            $rowsssss = $queryDataCompx->fetchAll(PDO::FETCH_ASSOC);
+
+            // تنظیم خروجی
+            $recAray["status"] = "vv1";
+            $recAray["timeUpdaty"] = time();
+            // $recAray["jsnDataTbl"] = json_encode($rowsssss, JSON_UNESCAPED_UNICODE);
+            $recAray["jsnDataTbl"] = $rowsssss;
+        } else {
+            $recAray["status"] = "vv2"; // عدم وجود داده برای آپدیت
+        }
+    } else {
+        errror('eror-not succes query Complx Tbl-2');
+    }
+
+
+    echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+} catch (\Throwable $th) {
+    //throw $th;
+    $connectDataComplx = null;
+    errror('eror-catch-Data Complex-1' . $th->getMessage());
+}
+
+
+function errror($ero = 'a')
+{
+    error_log("Error: " . $ero);
+    $recAray['status'] =  'vv6';
+    $recAray["mesagy2"] = "خطا. دوباره امتحان کنید اگر مشکل برطرف نشد به پشتیبانی پیام دهید.";
+    $recAray['msgErorBack'] =  $ero;
+    echo json_encode($recAray, JSON_UNESCAPED_UNICODE);
+}
+
+
+
+یه جیسون برمیگرده الان می خوام در next js به این آدرس بفریتم تا json رو دریافت کنم  و به شکل زیر داده های دریافتی رو مدیریت می کنم
+Private JSONTblUpd1 As JSONParser
+		Private ResTblUpdMap1 As Map
+		Dim addRecSucces As Boolean
+		If job.Success Then
+			Log("aa11")
+			Log("tt66" & job.GetString)
+			If job.GetString.StartsWith("{") Then
+				Try
+					JSONTblUpd1.Initialize(job.GetString)
+					ResTblUpdMap1 = JSONTblUpd1.NextObject
+					If ResTblUpdMap1.Get("status") = "vv1" Then
+						Main.timUpdTblComplexes = ResTblUpdMap1.Get("timeUpdaty")
+						Dim complxListItems As List
+						JSONTblUpd1.Initialize(ResTblUpdMap1.Get("jsnDataTbl"))
+						complxListItems = JSONTblUpd1.NextArray
+						
+						Log("aa33")
+						
+						Log(complxListItems.Get(0))
+
+						
+							
+							addRecSucces = False
+							CallSubDelayed2(otherServic, "iinsert", "redEror-getAllComplexesInfo-3--"&LastException.Message)
+						End Try
+						Main.sqlComplxes.EndTransaction
+							
+										
+						
+						isGetingDataComplx = False
+						
+					Else If ResTblUpdMap1.Get("status") = "vv2" Then
+						File.WriteString(File.DirInternal , "timUpdTblComplexes.txt" , Main.timUpdTblComplexes)
+'						("erorOfflineTbl - No New data of Tbl")
+					Else If ResTblUpdMap1.Get("status") = "vv3" Then
+						''' آپدیت کمتر از 100 دقیقه قبل بررسی شده
+						Main.logyy = 1
+					Else If ResTblUpdMap1.Get("status") = "vv4" Then
+						CallSub3(Main, "msgBogOther", OtherCode.clearSentencWithColor(ResTblUpdMap1.Get("mesagy2")) , "")
+						CallSubDelayed2(otherServic, "iinsert", "Message OnlineDataComplx 2")
+					Else If ResTblUpdMap1.Get("status") = "vv5" Then
+						File.Delete(File.DirInternal , "signyyup.txt")
+						File.Delete(File.DirInternal , "andazehha")
+						CallSubDelayed2(otherServic, "iinsert", "delet signup-OnlineDataComplx5")
+					Else If ResTblUpdMap1.Get("status") = "vv6" Then
+						isGetingDataComplx = False
+						CallSub(Main, "errMainPage")
+						CallSubDelayed2(otherServic, "iinsert", "redErorOnlineDataComplx 1- "&OtherCode.clearSentencWithColor(ResTblUpdMap1.Get("msgErorBack")))
+					Else
+						isGetingDataComplx = False
+						CallSub(Main, "errMainPage")
+						CallSubDelayed2(otherServic, "iinsert", "redErorOnlineDataComplx 2")
+					End If
+					isGetingDataComplx = False
+				Catch
+					CallSubDelayed2(otherServic, "iinsert", "redErorOnlineDataComplx 3--"&LastException.Message)
+					isGetingDataComplx = False
+					CallSub(Main, "errMainPage")
+				End Try
+			Else
+				isGetingDataComplx = False
+				CallSub(Main, "errMainPage")
+				CallSubDelayed2(otherServic, "iinsert", "erorOnlineDataComplx - not {")
+			End If
+		Else
+			isGetingDataComplx = False
+			CallSub(Main, "errMainPage")
+			CallSubDelayed2(otherServic, "iinsert", "erorOnlineDataComplx - not succuss")
+		End If
+		job.Release
+
+
+الان میخوام  اصولی و امن این در next js انجام بدم.
+
+چون در next js می خوام صفحه جدید بدون رفرش باز بشه و برای سئو هم مشکلی بیش نیاد
+1- وقتی این صفحه اولین بار باز میشه احتمالا بهتره دادده ها در سمت سرور رندر بشوند تا html در سمت سرو به همراه داده ها برگرده و خیلی مواقع هم است که کاربر زیر صفحه این رو برای اولین بار باز کرده و قراره وقتی کاربر روی دکمه برگشت زد این صفحه باز بشه و اینجا برای اینکه صفحه رفرش نشه فک کنم بهتر در سمت کلایت داده ها گرفته بشوند الان چطور این کار اصولی و با امنیت در next js انجام بدم
+
+فرانت با next js دامین اصلی است و بک اند با php قراره روی ساب دامین پیاده سازی بشه و اینکه فعلا صفحات next با js , jsx نوشته میشه

@@ -1,0 +1,197 @@
+:global(*) {
+  font-family: sansFa;
+}
+
+.navbar80 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 80vw;
+  height: 40px;
+  background: #efbf04;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+}
+
+.widthNavbar100 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 40px;
+  background: #efbf04;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+}
+
+.phoneMenuIcon {
+  display: none;
+  position: absolute;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 28px;
+}
+
+.menuIcon {
+  width: 34px;
+  height: 34px;
+}
+
+.ulNavbar {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  direction: rtl;
+  list-style-type: none;
+  padding: 0;
+  width: 95%;
+  height: 100%;
+  margin: 0;
+}
+
+.liMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+}
+
+.aTag,
+.aTagButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-family: yekanMedium;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2e2e2e;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.liMenu {
+  margin-right: 7px;
+}
+
+.liMenu:hover {
+  background: #f0f021;
+  color: antiquewhite;
+  padding: 6px;
+  border-radius: 15px;
+}
+
+.liContact {
+  position: absolute;
+  left: 50px;
+  width: 120px;
+  top: 0px;
+}
+
+.iconMenu {
+  padding: 0;
+  margin: 0;
+  margin-left: 2px;
+  color: #8f0177;
+  width: 23px;
+  height: 23px;
+}
+
+.liLogo {
+  position: absolute;
+  left: 15px;
+  width: 36px;
+  top: 2px;
+  height: 36px;
+  background-image: url(/sitefiles/icon/icon-128x128.png);
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 1400px) {
+  .navbar80 {
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .navbar80 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .phoneMenuIcon {
+    display: block;
+  }
+
+  .ulNavbar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    height: auto;
+    right: 0;
+    width: 0;
+    background: #efbf04;
+    align-items: flex-start;
+    border-bottom-left-radius: 10px;
+    box-shadow: -1px 2px 6px 0px #454545;
+    transition: 0.5s;
+  }
+
+  .ulNavbarOpen {
+    width: 180px;
+  }
+
+  .liMenu {
+    display: none;
+    margin: 0;
+    padding-right: 4px;
+    width: 100%;
+    margin-right: 2px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+  }
+
+  .ulNavbarOpen .liMenu {
+    display: flex;
+  }
+
+  .aTag,
+  .aTagButton {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .liContact {
+    position: static;
+  }
+
+  .liContact:hover {
+    border-bottom-left-radius: 10px;
+  }
+
+  /* .iconMenu {
+    color: #3f51b5;
+  } */
+}

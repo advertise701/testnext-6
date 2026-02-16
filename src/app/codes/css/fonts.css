@@ -1,0 +1,37 @@
+@font-face {
+  font-family: yekanMedium;
+  src: url(/sitefiles/fonts/yekanwebmedium.woff);
+}
+
+@font-face {
+  font-family: sansFa;
+  src: url(/sitefiles/fonts/testfontfanum.ttf);
+}
+
+@font-face {
+  font-family: RegsansDN;
+  src: url(/sitefiles/fonts/iransansdnweb.woff);
+}
+
+@font-face {
+  font-family: DNsannsBd;
+  src: url(/sitefiles/fonts/iransansdnbold.woff2);
+}
+
+@font-face {
+  font-family: ENsansDN;
+  src: url(/sitefiles/fonts/iransansdnweben.woff);
+}
+
+@font-face {
+  font-family: aaa1;
+  src: url(/sitefiles/fonts/aaa1.otf);
+}
+@font-face {
+  font-family: aaa3;
+  src: url(/sitefiles/fonts/aaa3.otf);
+}
+@font-face {
+  font-family: aaa6;
+  src: url(/sitefiles/fonts/aaa6.otf);
+}

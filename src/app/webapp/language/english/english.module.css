@@ -1,0 +1,132 @@
+:global(html),
+:global(body),
+:global(#__next) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.pageAllComplxMain {
+  /* padding: 24px 16px 48px; */
+  padding: 0;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #ffffff 0%, #e7d404 45%, #d20692 100%);
+  min-height: 100svh;
+  width: 100%;
+  max-width: 1111px;
+}
+
+.containerAllComplxMain {
+  width: 100%;
+  background: yellowgreen;
+  overflow-x: hidden;
+}
+
+.divComplexesMain {
+  position: fixed;
+  top: 40px;
+  bottom: 40px;
+  width: 100%;
+  max-width: 1111px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  padding: 16px;
+  overflow-y: auto;
+  background: #0ac4e0;
+  overflow-x: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.divComplexesMain::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+.divComplexesMain::-webkit-scrollbar-track {
+  background: #595555;
+}
+
+.divComplexesMain::-webkit-scrollbar-thumb {
+  background: #efbf04;
+}
+
+.divAllComplx2 {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 18px;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease,
+    max-height 220ms ease;
+  max-height: 9999px;
+  background-color: #0dea14;
+}
+
+.stylLinkEveryComplexCard {
+  text-decoration: none;
+  color: inherit;
+  background-color: #d20692;
+  display: block;
+  margin: 2px;
+  padding: 2px;
+}
+
+.divEveryComplexCardMain {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0364f5;
+  border: 1px solid #d7dee0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+  width: 300px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.divEveryComplexCardMain:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.divImgEveryComplxMain {
+  position: relative;
+
+  width: 100%;
+  height: 200px;
+  /* padding-top: 0%; */
+  background: linear-gradient(135deg, #cddcdf 0%, #e9eff1 100%);
+}
+
+.divTitleEveryComplexCardMain {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e2a2f;
+  line-height: 1.4;
+  margin: 1px;
+  direction: rtl;
+  font-family: sansFa;
+  padding: 1px;
+  background: #e607f2;
+}
+
+@media only screen and (max-width: 1111px) {
+  .pageAllComplxMain {
+    width: 100%;
+  }
+  .containerAllComplxMain {
+    width: 100%;
+  }
+}
