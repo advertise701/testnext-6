@@ -104,78 +104,78 @@ export default async function EachComplex({ params }) {
   const shouldShowHelpButton = String(matchedComplex?.isHelpy ?? "") !== "a";
 
   const name1Levels = String(matchedComplex?.name1Levels ?? "").trim();
-  const name1LevelsSplt = name1Levels
+  const name1LevelsRegx = name1Levels
     .split("@uu@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name2Levels = String(matchedComplex?.name2Levels ?? "").trim();
-  const name2LevelsSplt = name2Levels
+  const name2LevelsRegx = name2Levels
     .split("@uu@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const explain1Levels = String(matchedComplex?.explain1Levels ?? "").trim();
-  const explain1LevelsSplt = explain1Levels
+  const explain1LevelsRegx = explain1Levels
     .split("@uu@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
   const explain2Levels = String(matchedComplex?.explain2Levels ?? "").trim();
-  const explain2LevelsSplt = explain2Levels
+  const explain2LevelsRegx = explain2Levels
     .split("@uu@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const idSeasonHa = String(matchedComplex?.idSeasonHa ?? "").trim();
-  const idSeasonHaSplt = idSeasonHa
+  const idSeasonHaRegx = idSeasonHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name1SeasonHa = String(matchedComplex?.name1SeasonHa ?? "").trim();
-  const name1SeasonHaSplt = name1SeasonHa
+  const name1SeasonHaRegx = name1SeasonHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name2SeasonHa = String(matchedComplex?.name2SeasonHa ?? "").trim();
-  const name2SeasonHaSplt = name2SeasonHa
+  const name2SeasonHaRegx = name2SeasonHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const idGrammarHa = String(matchedComplex?.idGrammarHa ?? "").trim();
-  const idGrammarHaSplt = idGrammarHa
+  const idGrammarHaRegx = idGrammarHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name1GrammarHa = String(matchedComplex?.name1GrammarHa ?? "").trim();
-  const name1GrammarHaSplt = name1GrammarHa
+  const name1GrammarHaRegx = name1GrammarHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name2GrammarHa = String(matchedComplex?.name2GrammarHa ?? "").trim();
-  const name2GrammarHaSplt = name2GrammarHa
+  const name2GrammarHaRegx = name2GrammarHa
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const idG3Ha = String(matchedComplex?.idG3Ha ?? "").trim();
-  const idG3HaSplt = idG3Ha
+  const idG3HaRegx = idG3Ha
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name1G3Ha = String(matchedComplex?.name1G3Ha ?? "").trim();
-  const name1G3HaSplt = name1G3Ha
+  const name1G3HaRegx = name1G3Ha
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
 
   const name2G3Ha = String(matchedComplex?.name2G3Ha ?? "").trim();
-  const name2G3HaSplt = name2G3Ha
+  const name2G3HaRegx = name2G3Ha
     .split("@jjj@")
     .map((item) => item.trim())
     .filter(Boolean); // حذف آیتم خالی
@@ -188,14 +188,14 @@ export default async function EachComplex({ params }) {
 
           {matchedComplex ? (
             <div className={`${styles.divEachComplxMain}`}>
-              {name1LevelsSplt.length > 1 ? (
+              {name1LevelsRegx.length > 1 ? (
                 <h1 className={styles.h1OnlyForSs}>
                   {matchedComplex?.explain2Complx || "آموزش زبان انگلیسی"}
                 </h1>
               ) : null}
-              {name1LevelsSplt.length > 1 ? (
+              {name1LevelsRegx.length > 1 ? (
                 <div className={styles.divSvLevelsBtn} id="btsLevel">
-                  {name1LevelsSplt.map((level, idx) => (
+                  {name1LevelsRegx.map((level, idx) => (
                     // <p key={idx}>{level}</p>
                     <button
                       key={idx}
@@ -209,21 +209,44 @@ export default async function EachComplex({ params }) {
                 </div>
               ) : null}
 
-              {name1LevelsSplt.length > 0 ? (
+              {name1LevelsRegx.length > 0 ? (
                 <div
                   className={styles.divhzSvLevels}
                   id="levels-page"
                   data-slider="true"
                 >
-                  {name1LevelsSplt.map((level, idx) => {
-                    const t1 = explain1LevelsSplt[idx]?.trim() ?? "";
-                    const t2 = explain2LevelsSplt[idx]?.trim() ?? "";
+                  {name1LevelsRegx.map((level, idx) => {
+                    const t1 = explain1LevelsRegx[idx]?.trim() ?? "";
+                    const t2 = explain2LevelsRegx[idx]?.trim() ?? "";
                     const hasBoth = t1 !== "" && t2 !== "";
-                    const TitleTag = name1LevelsSplt.length === 1 ? "h1" : "p";
-                    const zirIdSeasonSplt = String(idSeasonHaSplt[idx] ?? "")
+                    const TitleTag = name1LevelsRegx.length === 1 ? "h1" : "p";
+
+                    const zirIdSeasonRegx = String(idSeasonHaRegx[idx] ?? "")
                       .split("@uu@")
                       .map((item) => item.trim())
                       .filter(Boolean);
+
+                    const ziridGrammarHaRegx = String(
+                      idGrammarHaRegx[idx] ?? "",
+                    )
+                      .split("@uu@")
+                      .map((item) => item.trim())
+                      .filter(Boolean);
+
+                    const zirName1GrammarHaRegx = String(
+                      name1GrammarHaRegx[idx] ?? "",
+                    )
+                      .split("@uu@")
+                      .map((item) => item.trim())
+                      .filter(Boolean);
+
+                    const zirName2GrammarHaRegx = String(
+                      name2GrammarHaRegx[idx] ?? "",
+                    )
+                      .split("@uu@")
+                      .map((item) => item.trim())
+                      .filter(Boolean);
+
                     return (
                       <div
                         key={idx}
@@ -244,35 +267,88 @@ export default async function EachComplex({ params }) {
                         </TitleTag>
 
                         <div className={styles.divSvLessOfLevel}>
-                          <div
-                            className={styles.divLesG3Gram}
-                            id={`p-${idx + 1}`}
-                          >
-                            <button
-                              className={styles.graBtn}
-                              id={`g-${idx + 1}`}
-                            >
-                              Grammar 1
-                            </button>
-
-                            <button
-                              className={styles.lesBtn}
-                              id={`l-${idx + 1}`}
-                            >
+                          {/* <div className={styles.divLesG3Gram}>
+                            <button className={styles.graBtn}>Grammar 1</button>
+                            <button className={styles.lesBtn}>
                               Lesson 1
                               <span className={styles.iconPlayLes}></span>
                             </button>
+                            <button className={styles.g3
+                            Btn}>G3-1</button>
+                          </div> */}
+                          {zirIdSeasonRegx.map((seasonId, sIdx) => {
+                            const tGram1 =
+                              zirName1GrammarHaRegx[sIdx]?.trim() ?? "";
+                            const tGram2 =
+                              zirName2GrammarHaRegx[sIdx]?.trim() ?? "";
+                            const hasBoth = tGram1 !== "" && tGram2 !== "";
 
-                            <button
-                              className={styles.g3Btn}
-                              id={`g3-${idx + 1}`}
-                            >
-                              G3-1
-                            </button>
-                          </div>
-                          {zirIdSeasonSplt.map((seasonId, sIdx) => (
-                            <div key={seasonId || sIdx}>{seasonId}</div>
-                          ))}
+                            // <div key={seasonId || sIdx}>{seasonId}</div>;
+                            return (
+                              <div
+                                key={idx + sIdx}
+                                className={styles.divLesG3Gram}
+                              >
+                                {zirIdSeasonRegx[sIdx] != "a" && (
+                                  <Link
+                                    key={`${eachComplex}grammar${seasonId || `${idx}${sIdx}`}`}
+                                    className={styles.graBtn}
+                                    href={
+                                      "/webapp/language/english/" +
+                                      eachComplex +
+                                      "/grammars/season" +
+                                      (Number(seasonId) + 1)
+                                    }
+                                    // prefetch={false}
+                                    aria-disabled={!eachComplex}
+                                  >
+                                    <p className={styles.pNamBtnHaGram}>
+                                      {tGram1}
+                                      {hasBoth ? (
+                                        <>
+                                          <br />
+                                          <span className={styles.secondLine}>
+                                            {tGram2}
+                                          </span>
+                                        </>
+                                      ) : tGram2 ? (
+                                        tGram2
+                                      ) : null}
+                                    </p>
+                                  </Link>
+                                )}
+                                <Link
+                                  key={`${eachComplex}season${seasonId || `${idx}${sIdx}`}`}
+                                  className={styles.lesBtn}
+                                  href={
+                                    "/webapp/language/english/" +
+                                    eachComplex +
+                                    "/videos/season" +
+                                    (Number(seasonId) + 1)
+                                  }
+                                  // prefetch={false}
+                                  aria-disabled={!eachComplex}
+                                >
+                                  Lesson 1
+                                  <span className={styles.iconPlayLes}></span>
+                                </Link>
+                                <Link
+                                  key={`${eachComplex}words${seasonId || `${idx}${sIdx}`}`}
+                                  className={styles.lesBtn}
+                                  href={
+                                    "/webapp/language/english/" +
+                                    eachComplex +
+                                    "/words/season" +
+                                    (Number(seasonId) + 1)
+                                  }
+                                  // prefetch={false}
+                                  aria-disabled={!eachComplex}
+                                >
+                                  G3-1
+                                </Link>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     );
