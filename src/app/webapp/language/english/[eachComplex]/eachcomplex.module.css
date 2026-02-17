@@ -16,65 +16,59 @@
   background-color: chocolate;
 }
 .containerEachComplxMain {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  max-width: 1111px;
+  height: 100vh;
   background: rgb(212, 5, 5);
   overflow-x: hidden;
+  position: relative;
 }
 
 .divEachComplxMain {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto; /* بالا: divSvLevelsBtn, وسط: divhzSvLevels, پایین: divSsdsdsd */
-  justify-content: center;
-  position: fixed;
+  position: absolute;
+  left: 0;
   top: 40px;
   bottom: 40px;
   width: 100%;
-  max-width: 1111px;
-  left: 50%;
-  transform: translateX(-50%);
+  /* max-width: 800px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   overflow: hidden;
   background: #0ae095;
-  margin: 0 auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  /* margin-top: 5px; */
+  /* margin-bottom: 5px; */
+  margin: 3px;
   padding: 5px;
 }
-.divEachComplxMain::-webkit-scrollbar {
-  width: 13px;
-  height: 13px;
-}
-.divEachComplxMain::-webkit-scrollbar-track {
-  background: #595555;
-}
-.divEachComplxMain::-webkit-scrollbar-thumb {
-  background: #efbf04;
-}
 
-.gridHidden {
-  opacity: 0;
-  transform: translateX(-24px);
-  max-height: 0;
+.divLevBtnAndHzSvLev {
+  position: relative;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(51, 77, 222);
+  margin: 10px;
   overflow: hidden;
-  pointer-events: none;
 }
 
 .divSvLevelsBtn {
-  grid-row: 1;
-  position: static;
-  top: 3px;
-  left: 0;
-  right: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   background-color: #d20692;
-  padding: 5px;
-  margin: 5px;
+  /* background-color: transparent; */
+  padding: 1px;
+  margin: 1px;
   /* visibility: hidden; */
 }
 .divSvLevelsBtn::-webkit-scrollbar {
@@ -93,14 +87,14 @@
   height: auto;
   background-color: rgb(255, 255, 255);
   color: rgb(33, 33, 33);
-  font-size: 30px;
+  font-size: 18px;
   font-family: Helvetica;
   font-weight: 700;
   text-shadow: 1px 1px 2px #efbf04;
   text-align: center;
   border: 3px solid #8f0177;
   margin: 0;
-  padding: 4px 7px;
+  padding: 3px 6px;
   flex: 0 0 auto;
   /* gap: 0; */
 }
@@ -121,15 +115,14 @@
 }
 
 .divSsdsdsd {
-  grid-row: 3;
-  position: static;
-  bottom: 2px;
+  /* grid-row: 3; */
+  /* position: static; */
+  /* bottom: 1px; */
   left: 10px;
   right: 10px;
-  /* left: 50%;
-  transform: translate(-50%, -50%); */
+  height: 20vh;
   background-color: #e607f2;
-  padding: 10px 20px;
+  padding: 3px 3px;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -138,54 +131,38 @@
 
 /* aaaa */
 .divhzSvLevels {
-  grid-row: 2;
-  position: fixed;
-  left: 0;
-  top: 5px;
-  bottom: 15vh;
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
   flex-direction: row;
   transform: translateX(0);
   transition: transform 0.3s ease-out;
   padding: 0;
   background-color: transparent;
-  background-color: #efbf04;
-  overflow-y: scroll;
+  background-color: #43ef04;
   overscroll-behavior: contain;
   /* visibility: hidden; */
+  /* margin: 6px; */
 }
-
-.divSvEachLevel {
-  position: relative;
-  width: 1111px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0;
-  background-color: transparent;
-  overflow: hidden;
-  /* overscroll-behavior: contain; */
-}
-
 .h3ExpainComplx {
+  width: 60%;
   color: rgb(33, 33, 33);
-  font-size: 25px;
+  font-size: 16px;
   font-weight: 800;
   font-family: sansFa;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 500px;
+  background-color: #ffff80;
+  /* background-color: transparent; */
   top: 0;
-  height: auto;
   display: block;
+  text-align: center;
   transition: transform 0.3s ease-in-out;
   border-radius: 99px;
-  padding: 5px;
-  margin: 0 auto;
+  padding: 2px;
   white-space: normal;
   line-height: 1.2em;
+  margin: 5px;
+  flex-wrap: nowrap;
 }
 .h3ExpainComplx .secondLine {
   font-size: 0.7em; /* RelativeSize(0.7) */
@@ -200,90 +177,135 @@
   white-space: nowrap;
   border: 0;
 }
+.divSvEachLevel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0;
+  background-color: transparent;
+  background-color: #8f8d01;
+  overflow: hidden;
+  /* overscroll-behavior: contain; */
+  margin: 5px;
+  padding: 5px;
+  flex: 0 0 auto; /* shrink نشود */
+  margin: 0;
+}
 
 .divSvLessOfLevel {
-  position: relative;
   background-color: transparent;
   background-color: #7f7a75e0;
-  width: 1100px;
-  /* left: 0; */
-  /* right: 0; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  flex: 1;
+  /* flex: 1; */
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 3px;
+  /* margin: 3px; */
+  /* padding: 3px; */
+}
+.divSvLessOfLevel::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.divSvLessOfLevel::-webkit-scrollbar-track {
+  background: #595555;
+}
+.divSvLessOfLevel::-webkit-scrollbar-thumb {
+  background: #efbf04;
 }
 
 .divLesG3Gram {
   background-color: transparent;
-  background-color: #8f0177;
-  width: 100%;
+  background-color: #99f48d;
+  width: 800px;
   /* height: 13vw; */
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   margin: 0;
   margin-top: 5px;
   margin-bottom: 5px;
   -webkit-overflow-scrolling: touch;
 }
+.stylTagGraBtn,
+.stylTagSeasyBtn,
+.stylTagG3WdBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+}
 
-.graBtn {
-  width: 28vw;
-  height: 12vw;
-  background-color: #314149;
+.pNamBtnHaSeasson {
+  margin: 0;
+  text-align: center;
+}
+
+.stylTagGraBtn {
+  width: 28%;
+  height: auto;
+  background-color: #2e323a;
   color: white;
   border: 0;
   border-top-left-radius: 6vw;
   border-bottom-left-radius: 6vw;
-  padding: 0;
-  margin-right: 2vw;
+  padding: 5px 3px;
+  margin: 0 1%;
+  /* margin-right: 2%; */
   box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
+  padding-right: 48px;
 }
 
-.lesBtn {
-  width: 39vw;
-  height: 12vw;
+.stylTagSeasyBtn {
+  position: relative;
+  width: 39%;
+  height: auto;
   background-color: #ffffff;
   color: rgb(9, 9, 9);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 0.3vw solid #03a9f4;
+  border: 1% solid #8f0177;
   border-top-right-radius: 6vw;
   border-bottom-right-radius: 6vw;
   padding: 0;
   margin-right: 4vw;
-  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
-  font-size: 5vw;
+  box-shadow: 0 1px 2px 1px #505050;
+  font-size: 20px;
 }
 
 .iconPlayLes {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #ff4145;
-  font-size: 9vw;
-  font-weight: 550;
-  margin-left: 2vw;
-  font-family: Fontmatr;
+  margin: 0;
+  padding: 0;
+  /* background-color: rgb(17, 121, 212); */
+  /* margin-left: 2vw; */
+  /* font-family: Fontmatr; */
 }
 
-.g3Btn {
-  width: 20vw;
-  height: 12vw;
-  background-color: #00bcd4;
+.stylTagG3WdBtn {
+  width: 20%;
+  height: auto;
+  background-color: #8f0177;
   color: white;
   border: 0;
   border-radius: 6vw;
   padding: 0;
-  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
-  text-shadow: 0vw 0.1vw 1vw #1c1c1c;
+  box-shadow: 0 1px 2px 1px #505050;
+  text-shadow: 0 1px 1px #1c1c1c;
 }
 
 @media only screen and (max-width: 1111px) {
@@ -291,12 +313,42 @@
     width: 100vw;
   }
   .containerEachComplxMain {
-    width: 100%;
-  }
-  .divSvEachLevel {
     width: 100vw;
   }
+  /* .divSvEachLevel {
+    width: 100vw;
+  }
+  .h3ExpainComplx {
+    width: 98vw;
+  }
+
   .divSvLessOfLevel {
+    width: 100vw;
+  } */
+}
+
+/* Phone Portrait */
+@media only screen and (max-width: 600px) and (min-height: 600px) {
+  .divSvLessOfLevel::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* Phone Landscape */
+@media screen and (max-width: 950px) and (max-height: 600px) {
+  .divSvLessOfLevel::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+/* Tablet Portrait */
+@media only screen and (min-height: 700px) and (min-width: 600px) {
+  .divSvLessOfLevel::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  .divEachComplxMain {
     width: 100vw;
   }
 }

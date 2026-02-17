@@ -8,6 +8,7 @@ import Footer from "@/app/webapp/components/FooterWebapp";
 import styles from "./eachcomplex.module.css";
 import Script from "next/script";
 import LevelsSliderRunnerClient from "@/app/webapp/components/LevelsSliderRunnerClient";
+import { CirclePlay } from "lucide-react";
 
 const apiUrl = process.env.API_URL || "https://learningvalley.ir/zzzmvc/api/";
 const API_URL_COMPLEXES = `${apiUrl}getAllComplexesInfo.php`;
@@ -193,178 +194,237 @@ export default async function EachComplex({ params }) {
                   {matchedComplex?.explain2Complx || "آموزش زبان انگلیسی"}
                 </h1>
               ) : null}
-              {name1LevelsRegx.length > 1 ? (
-                <div className={styles.divSvLevelsBtn} id="btsLevel">
-                  {name1LevelsRegx.map((level, idx) => (
-                    // <p key={idx}>{level}</p>
-                    <button
-                      key={idx}
-                      className={styles.btnLevvel}
-                      id={`idLev${idx + 1}`}
-                      //   onClick={() => btLevel(idx + 1)}
-                    >
-                      {level}
-                    </button>
-                  ))}
-                </div>
-              ) : null}
 
-              {name1LevelsRegx.length > 0 ? (
-                <div
-                  className={styles.divhzSvLevels}
-                  id="levels-page"
-                  data-slider="true"
-                >
-                  {name1LevelsRegx.map((level, idx) => {
-                    const t1 = explain1LevelsRegx[idx]?.trim() ?? "";
-                    const t2 = explain2LevelsRegx[idx]?.trim() ?? "";
-                    const hasBoth = t1 !== "" && t2 !== "";
-                    const TitleTag = name1LevelsRegx.length === 1 ? "h1" : "p";
-
-                    const zirIdSeasonRegx = String(idSeasonHaRegx[idx] ?? "")
-                      .split("@uu@")
-                      .map((item) => item.trim())
-                      .filter(Boolean);
-
-                    const ziridGrammarHaRegx = String(
-                      idGrammarHaRegx[idx] ?? "",
-                    )
-                      .split("@uu@")
-                      .map((item) => item.trim())
-                      .filter(Boolean);
-
-                    const zirName1GrammarHaRegx = String(
-                      name1GrammarHaRegx[idx] ?? "",
-                    )
-                      .split("@uu@")
-                      .map((item) => item.trim())
-                      .filter(Boolean);
-
-                    const zirName2GrammarHaRegx = String(
-                      name2GrammarHaRegx[idx] ?? "",
-                    )
-                      .split("@uu@")
-                      .map((item) => item.trim())
-                      .filter(Boolean);
-
-                    return (
-                      <div
+              <div className={styles.divLevBtnAndHzSvLev}>
+                {name1LevelsRegx.length > 1 ? (
+                  <div className={styles.divSvLevelsBtn} id="btsLevel">
+                    {name1LevelsRegx.map((level, idx) => (
+                      // <p key={idx}>{level}</p>
+                      <button
                         key={idx}
-                        className={styles.divSvEachLevel}
-                        data-slide="true"
-                        data-hor-seekbar="true"
+                        className={styles.btnLevvel}
+                        id={`idLev${idx + 1}`}
+                        //   onClick={() => btLevel(idx + 1)}
                       >
-                        <TitleTag className={styles.h3ExpainComplx}>
-                          {t1}
-                          {hasBoth ? (
-                            <>
-                              <br />
-                              <span className={styles.secondLine}>{t2}</span>
-                            </>
-                          ) : t2 ? (
-                            t2
-                          ) : null}
-                        </TitleTag>
+                        {level}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
 
-                        <div className={styles.divSvLessOfLevel}>
-                          {/* <div className={styles.divLesG3Gram}>
-                            <button className={styles.graBtn}>Grammar 1</button>
-                            <button className={styles.lesBtn}>
-                              Lesson 1
-                              <span className={styles.iconPlayLes}></span>
-                            </button>
-                            <button className={styles.g3
-                            Btn}>G3-1</button>
-                          </div> */}
-                          {zirIdSeasonRegx.map((seasonId, sIdx) => {
-                            const tGram1 =
-                              zirName1GrammarHaRegx[sIdx]?.trim() ?? "";
-                            const tGram2 =
-                              zirName2GrammarHaRegx[sIdx]?.trim() ?? "";
-                            const hasBoth = tGram1 !== "" && tGram2 !== "";
+                {name1LevelsRegx.length > 0 ? (
+                  <div
+                    className={styles.divhzSvLevels}
+                    id="levels-page"
+                    data-slider="true"
+                  >
+                    {name1LevelsRegx.map((level, idx) => {
+                      const texpLv1 = explain1LevelsRegx[idx]?.trim() ?? "";
+                      const texpLv2 = explain2LevelsRegx[idx]?.trim() ?? "";
+                      const hasexpLvBoth = texpLv1 !== "" && texpLv2 !== "";
+                      const TitleTag =
+                        name1LevelsRegx.length === 1 ? "h1" : "p";
 
-                            // <div key={seasonId || sIdx}>{seasonId}</div>;
-                            return (
-                              <div
-                                key={idx + sIdx}
-                                className={styles.divLesG3Gram}
-                              >
-                                {zirIdSeasonRegx[sIdx] != "a" && (
+                      const zirIdSeasonRegx = String(idSeasonHaRegx[idx] ?? "")
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName1SeasonHaRegx = String(
+                        name1SeasonHaRegx[idx] ?? "",
+                      )
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName2SeasonHaRegx = String(
+                        name2SeasonHaRegx[idx] ?? "",
+                      )
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+
+                      const ziridGrammarHaRegx = String(
+                        idGrammarHaRegx[idx] ?? "",
+                      )
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName1GrammarHaRegx = String(
+                        name1GrammarHaRegx[idx] ?? "",
+                      )
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName2GrammarHaRegx = String(
+                        name2GrammarHaRegx[idx] ?? "",
+                      )
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+
+                      const zirIdG3HaRegx = String(idG3HaRegx[idx] ?? "")
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName1G3HaRegx = String(name1G3HaRegx[idx] ?? "")
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+                      const zirName2G3HaRegx = String(name2G3HaRegx[idx] ?? "")
+                        .split("@uu@")
+                        .map((item) => item.trim())
+                        .filter(Boolean);
+
+                      return (
+                        <div
+                          key={idx}
+                          className={styles.divSvEachLevel}
+                          data-slide="true"
+                          data-hor-seekbar="true"
+                        >
+                          <TitleTag className={styles.h3ExpainComplx}>
+                            {texpLv1}
+                            {hasexpLvBoth ? (
+                              <>
+                                <br />
+                                <span className={styles.secondLine}>
+                                  {texpLv2}
+                                </span>
+                              </>
+                            ) : texpLv2 ? (
+                              texpLv2
+                            ) : null}
+                          </TitleTag>
+
+                          <div className={styles.divSvLessOfLevel}>
+                            {zirIdSeasonRegx.map((seasonId, sIdx) => {
+                              const tGram1 =
+                                zirName1GrammarHaRegx[sIdx]?.trim() ?? "";
+                              const tGram2 =
+                                zirName2GrammarHaRegx[sIdx]?.trim() ?? "";
+                              const hasGramBoth =
+                                tGram1 !== "" && tGram2 !== "";
+
+                              const tSeassn1 =
+                                zirName1SeasonHaRegx[sIdx]?.trim() ?? "";
+                              const tSeassn2 =
+                                zirName2SeasonHaRegx[sIdx]?.trim() ?? "";
+                              const hasSeassnBoth =
+                                tSeassn1 !== "" && tSeassn2 !== "";
+                              zirName1SeasonHaRegx;
+
+                              const tG3Wd1 =
+                                zirName1G3HaRegx[sIdx]?.trim() ?? "";
+                              const tG3Wd2 =
+                                zirName2G3HaRegx[sIdx]?.trim() ?? "";
+                              const hasG3WdBoth =
+                                tG3Wd1 !== "" && tG3Wd2 !== "";
+                              zirName2G3HaRegx;
+
+                              return (
+                                <div
+                                  key={idx + sIdx}
+                                  className={styles.divLesG3Gram}
+                                >
+                                  {ziridGrammarHaRegx[sIdx] != "a" && (
+                                    <Link
+                                      key={`${eachComplex}grammar${seasonId || `${idx}${sIdx}`}`}
+                                      className={styles.stylTagGraBtn}
+                                      href={
+                                        "/webapp/language/english/" +
+                                        eachComplex +
+                                        "/grammars/season-" +
+                                        (Number(seasonId) + 1)
+                                      }
+                                      aria-disabled={!eachComplex}
+                                    >
+                                      <p className={styles.pNamBtnHaGram}>
+                                        {tGram1}
+                                        {hasGramBoth ? (
+                                          <>
+                                            <br />
+                                            <span className={styles.secondLine}>
+                                              {tGram2}
+                                            </span>
+                                          </>
+                                        ) : tGram2 ? (
+                                          tGram2
+                                        ) : null}
+                                      </p>
+                                    </Link>
+                                  )}
+
                                   <Link
-                                    key={`${eachComplex}grammar${seasonId || `${idx}${sIdx}`}`}
-                                    className={styles.graBtn}
+                                    key={`${eachComplex}season${seasonId || `${idx}${sIdx}`}`}
+                                    className={styles.stylTagSeasyBtn}
                                     href={
                                       "/webapp/language/english/" +
                                       eachComplex +
-                                      "/grammars/season" +
+                                      "/videos/season-" +
                                       (Number(seasonId) + 1)
                                     }
                                     // prefetch={false}
                                     aria-disabled={!eachComplex}
                                   >
-                                    <p className={styles.pNamBtnHaGram}>
-                                      {tGram1}
-                                      {hasBoth ? (
+                                    <p className={styles.pNamBtnHaSeasson}>
+                                      {tSeassn1}
+                                      {hasSeassnBoth ? (
                                         <>
                                           <br />
                                           <span className={styles.secondLine}>
-                                            {tGram2}
+                                            {tSeassn2}
                                           </span>
                                         </>
-                                      ) : tGram2 ? (
-                                        tGram2
+                                      ) : tSeassn2 ? (
+                                        tSeassn2
                                       ) : null}
                                     </p>
+                                    <CirclePlay
+                                      size={40}
+                                      strokeWidth={2}
+                                      className={styles.iconPlayLes}
+                                    />
                                   </Link>
-                                )}
-                                <Link
-                                  key={`${eachComplex}season${seasonId || `${idx}${sIdx}`}`}
-                                  className={styles.lesBtn}
-                                  href={
-                                    "/webapp/language/english/" +
-                                    eachComplex +
-                                    "/videos/season" +
-                                    (Number(seasonId) + 1)
-                                  }
-                                  // prefetch={false}
-                                  aria-disabled={!eachComplex}
-                                >
-                                  Lesson 1
-                                  <span className={styles.iconPlayLes}></span>
-                                </Link>
-                                <Link
-                                  key={`${eachComplex}words${seasonId || `${idx}${sIdx}`}`}
-                                  className={styles.lesBtn}
-                                  href={
-                                    "/webapp/language/english/" +
-                                    eachComplex +
-                                    "/words/season" +
-                                    (Number(seasonId) + 1)
-                                  }
-                                  // prefetch={false}
-                                  aria-disabled={!eachComplex}
-                                >
-                                  G3-1
-                                </Link>
-                              </div>
-                            );
-                          })}
+
+                                  {zirIdG3HaRegx[sIdx] != "a" && (
+                                    <Link
+                                      key={`${eachComplex}words${seasonId || `${idx}${sIdx}`}`}
+                                      className={styles.stylTagG3WdBtn}
+                                      href={
+                                        "/webapp/language/english/" +
+                                        eachComplex +
+                                        "/words/season-" +
+                                        (Number(seasonId) + 1)
+                                      }
+                                      // prefetch={false}
+                                      aria-disabled={!eachComplex}
+                                    >
+                                      <p className={styles.pNamBtnHaG3Wd}>
+                                        {tG3Wd1}
+                                        {hasG3WdBoth ? (
+                                          <>
+                                            <br />
+                                            <span className={styles.secondLine}>
+                                              {tG3Wd2}
+                                            </span>
+                                          </>
+                                        ) : tG3Wd2 ? (
+                                          tG3Wd2
+                                        ) : null}
+                                      </p>
+                                    </Link>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : null}
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </div>
 
               <div className={styles.divSsdsdsd}>ssdsdsd</div>
-
-              {/* <div className={styles.divhzSvLevels} id="levels-page"></div> */}
-
-              {/* <div>
-                <p>{matchedComplex.firstNameComplx}</p>
-                <p>{matchedComplex.explain1Complx}</p>
-                <p>{matchedComplex.explain2Complx}</p>{" "}
-              </div> */}
             </div>
           ) : (
             <RetryButton
