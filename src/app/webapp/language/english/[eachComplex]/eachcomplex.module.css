@@ -10,14 +10,14 @@
   /* background: linear-gradient(180deg, #ffffff 0%, #e7d404 45%, #d20692 100%); */
   padding: 0;
   margin: 0 auto;
-  width: 100vw;
-  max-width: 1111px;
+  /* width: 100vw; */
+  width: 1111px;
   height: 100vh;
   background-color: chocolate;
 }
 .containerEachComplxMain {
-  width: 100vw;
-  max-width: 1111px;
+  /* width: 100vw; */
+  width: 1111px;
   height: 100vh;
   background: rgb(212, 5, 5);
   overflow-x: hidden;
@@ -27,16 +27,14 @@
 .divEachComplxMain {
   position: absolute;
   left: 0;
+  right: 0;
   top: 40px;
   bottom: 40px;
-  width: 100%;
-  /* max-width: 800px; */
   /* left: 50%; */
   /* transform: translateX(-50%); */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
   overflow: hidden;
   background: #0ae095;
   /* margin-top: 5px; */
@@ -45,22 +43,40 @@
   padding: 5px;
 }
 
-.divLevBtnAndHzSvLev {
-  position: relative;
+.divWraperLevelsAndLastWatch {
   width: 100%;
   min-width: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  background-color: transparent;
+  background-color: #f48d99;
+}
+.divLevBtnAndHzSvLev {
+  position: relative;
+  top: 0;
+  width: 100%;
+  min-width: 0;
+  /* min-height: 100%; */
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(51, 77, 222);
+  background-color: rgb(199, 109, 209);
   margin: 10px;
   overflow: hidden;
 }
 
-.divSvLevelsBtn {
+.divSvLevelsBtn1 {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.divSvLevelsBtn2 {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   overflow-x: auto;
@@ -72,18 +88,22 @@
   margin: 1px;
   /* visibility: hidden; */
 }
-.divSvLevelsBtn::-webkit-scrollbar {
+
+.divSvLevelsBtn2::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
-.divSvLevelsBtn::-webkit-scrollbar-track {
+.divSvLevelsBtn2::-webkit-scrollbar-track {
   background: #595555;
 }
-.divSvLevelsBtn::-webkit-scrollbar-thumb {
+.divSvLevelsBtn2::-webkit-scrollbar-thumb {
   background: #efbf04;
 }
 
 .btnLevvel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
   height: auto;
   background-color: rgb(255, 255, 255);
@@ -102,32 +122,17 @@
 .btnLevvel + .btnLevvel {
   margin-left: -1px;
 }
-.divSvLevelsBtn .btnLevvel:first-child {
+.divSvLevelsBtn2 .btnLevvel:first-child {
   /* استایل دکمه اول */
   background-color: #8f0177;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   color: #eeeded;
 }
-.divSvLevelsBtn .btnLevvel:last-child {
+.divSvLevelsBtn2 .btnLevvel:last-child {
   /* استایل دکمه آخر */
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-.divSsdsdsd {
-  /* grid-row: 3; */
-  /* position: static; */
-  /* bottom: 1px; */
-  left: 10px;
-  right: 10px;
-  height: 20vh;
-  background-color: #f2c307;
-  padding: 3px 3px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 8px;
 }
 
 /* aaaa */
@@ -135,18 +140,19 @@
   display: flex;
   width: 100%;
   min-width: 0;
+  /* height: 70%; */
   justify-content: flex-start;
   align-items: flex-start;
   align-self: flex-start;
   flex-direction: row;
   transform: translateX(0);
   transition: transform 0.3s ease-out;
-  padding: 0;
   background-color: transparent;
   background-color: #43ef04;
   overscroll-behavior: contain;
   /* visibility: hidden; */
   /* margin: 6px; */
+  padding: 10px;
 }
 .h3ExpainComplx {
   width: 60%;
@@ -168,7 +174,7 @@
   flex-wrap: nowrap;
 }
 .h3ExpainComplx .secondLine {
-  font-size: 0.7em; /* RelativeSize(0.7) */
+  font-size: 0.7em;
 }
 .h1OnlyForSs {
   width: 1px;
@@ -181,11 +187,11 @@
   border: 0;
 }
 .divSvEachLevel {
-  display: flex;
   width: 100%;
   min-width: 0;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   text-align: center;
   padding: 0;
@@ -195,7 +201,7 @@
   /* overscroll-behavior: contain; */
   margin: 5px;
   padding: 5px;
-  flex: 0 0 100%; /* shrink نشود */
+  flex: 0 0 100%;
   margin: 0;
 }
 
@@ -204,6 +210,7 @@
   background-color: #7f7a75e0;
   width: 100%;
   min-width: 0;
+  height: 50vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -213,8 +220,6 @@
   /* flex: 1; */
   overflow-x: hidden;
   overflow-y: auto;
-  /* margin: 3px; */
-  /* padding: 3px; */
 }
 .divSvLessOfLevel::-webkit-scrollbar {
   width: 7px;
@@ -232,8 +237,6 @@
   background-color: #99f48d;
   width: 100%;
   min-width: 0;
-  /* width: 800px; */
-  /* height: 13vw; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -300,9 +303,6 @@
   color: #ff4145;
   margin: 0;
   padding: 0;
-  /* background-color: rgb(17, 121, 212); */
-  /* margin-left: 2vw; */
-  /* font-family: Fontmatr; */
 }
 
 .stylTagG3WdBtn {
@@ -317,12 +317,96 @@
   text-shadow: 0 1px 1px #1c1c1c;
 }
 
+.stylLnkLastWatchMain {
+  position: static;
+  width: 30%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f2c307;
+  margin: 5px;
+  padding: 3px 3px;
+  border-radius: 8px;
+}
+.divLastWatchMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  background-color: rgb(233, 233, 233);
+  overflow: hidden;
+  border: 1px solid #d7dee0;
+  box-shadow: 1px 1px 10px #313133;
+  border-radius: 13px;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+.divLastWatchMain:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+.divLastWatchImgAndTimy {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  padding: 2px;
+  margin: 2px;
+  background-color: turquoise;
+}
+.divImgLastWatch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.pLastWatchTime {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 5px;
+}
+.divTitlLastWatch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: wheat;
+}
+.pLastWatchTitle1 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pLastWatchTitle2 {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
 @media only screen and (max-width: 1111px) {
   .pageEachComplxMain {
     width: 100vw;
   }
   .containerEachComplxMain {
-    width: 100vw;
+    width: 100%;
   }
   /* .divSvEachLevel {
     width: 100vw;
@@ -337,16 +421,23 @@
 }
 
 /* Phone Portrait */
-@media only screen and (max-width: 600px) {
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+  /* .divLevBtnAndHzSvLev {
+    height: 60vh;
+  } */
   .divSvLessOfLevel::-webkit-scrollbar {
     width: 7px;
     height: 7px;
   }
-  .divEachComplxMain {
+  .divWraperLevelsAndLastWatch {
     flex-direction: column;
   }
-  .divSsdsdsd {
+  .stylLnkLastWatchMain {
     background-color: brown;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 23vh;
   }
 }
 
@@ -356,18 +447,30 @@
     width: 8px;
     height: 8px;
   }
-  .divSsdsdsd {
-    background-color: rgb(42, 147, 165);
+  .divWraperLevelsAndLastWatch {
+    flex-direction: row;
+  }
+  .stylLnkLastWatchMain {
+    background-color: rgb(2, 9, 157);
+    position: static;
+    width: 30%;
+    height: 50vh;
   }
 }
 /* Tablet Portrait */
-/* @media only screen and (min-width: 800px) and (min-height: 700px) {
+@media only screen and (orientation: portrait) and (min-width: 700px) {
   .divSvLessOfLevel::-webkit-scrollbar {
     width: 9px;
     height: 9px;
   }
-  .divEachComplxMain {
-    width: 100vw;
+  .divWraperLevelsAndLastWatch {
+    /* width: 100vw; */
     flex-direction: column;
   }
-} */
+  .stylLnkLastWatchMain {
+    background-color: rgb(165, 77, 42);
+    position: absolute;
+    bottom: 0;
+    width: 70%;
+  }
+}
