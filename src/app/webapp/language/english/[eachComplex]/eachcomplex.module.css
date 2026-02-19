@@ -26,18 +26,21 @@
 
 .divEachComplxMain {
   position: fixed;
-  left: 0;
-  right: 0;
+  /* left: 0; */
+  /* right: 0; */
+  width: 100vw;
+  max-width: 1111px;
   top: 40px;
   bottom: 40px;
+
   /* left: 50%; */
-  /* transform: translateX(-50%); */
+  /* transform: transla/teX(-50%); */
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
   background: transparent;
-  background: #2de807;
+  background: #07b7e8;
   margin: 0;
   padding: 0;
 }
@@ -204,7 +207,7 @@
   min-width: 0;
   height: 50vh;
   padding: 2px;
-  padding-bottom: 70px;
+  padding-bottom: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -401,6 +404,7 @@
   text-align: center;
   /* white-space: nowrap; */
 }
+
 @media only screen and (max-width: 1111px) {
   .pageEachComplxMain {
     width: 100vw;
