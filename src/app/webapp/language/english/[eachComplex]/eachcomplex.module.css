@@ -8,18 +8,18 @@
 
 .pageEachComplxMain {
   /* background: linear-gradient(180deg, #ffffff 0%, #e7d404 45%, #d20692 100%); */
-  padding: 0;
-  margin: 0 auto;
-  /* width: 100vw; */
+
   width: 1111px;
   height: 100vh;
-  background-color: chocolate;
+  background-color: transparent;
+  padding: 0;
+  margin: 0 auto;
 }
 .containerEachComplxMain {
   /* width: 100vw; */
   width: 1111px;
   height: 100vh;
-  background: rgb(212, 5, 5);
+  background: transparent;
   overflow-x: hidden;
   position: relative;
 }
@@ -36,11 +36,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
-  background: #0ae095;
-  /* margin-top: 5px; */
-  /* margin-bottom: 5px; */
-  margin: 3px;
-  padding: 5px;
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .divWraperLevelsAndLastWatch {
@@ -51,21 +49,22 @@
   align-items: center;
   flex-direction: row;
   background-color: transparent;
-  background-color: #f48d99;
+  margin: 0;
+  padding: 0;
 }
 .divLevBtnAndHzSvLev {
   position: relative;
   top: 0;
   width: 100%;
   min-width: 0;
-  /* min-height: 100%; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(199, 109, 209);
-  margin: 10px;
+  /* background-color: rgb(199, 109, 209); */
+  margin-top: 10px;
   overflow: hidden;
+  flex: 1;
 }
 
 .divSvLevelsBtn1 {
@@ -82,13 +81,11 @@
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  background-color: #d20692;
-  /* background-color: transparent; */
-  padding: 1px;
-  margin: 1px;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
   /* visibility: hidden; */
 }
-
 .divSvLevelsBtn2::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -106,8 +103,8 @@
   align-items: center;
   width: auto;
   height: auto;
-  background-color: rgb(255, 255, 255);
-  color: rgb(33, 33, 33);
+  background-color: #ffffff;
+  color: #212121;
   font-size: 18px;
   font-family: Helvetica;
   font-weight: 700;
@@ -140,7 +137,6 @@
   display: flex;
   width: 100%;
   min-width: 0;
-  /* height: 70%; */
   justify-content: flex-start;
   align-items: flex-start;
   align-self: flex-start;
@@ -148,29 +144,43 @@
   transform: translateX(0);
   transition: transform 0.3s ease-out;
   background-color: transparent;
-  background-color: #43ef04;
   overscroll-behavior: contain;
-  /* visibility: hidden; */
-  /* margin: 6px; */
-  padding: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.divSvEachLevel {
+  min-width: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: transparent;
+  overflow: hidden;
+  /* overscroll-behavior: contain; */
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  flex: 0 0 100%;
 }
 .h3ExpainComplx {
-  width: 60%;
+  width: 99%;
   color: rgb(33, 33, 33);
   font-size: 16px;
   font-weight: 800;
   font-family: sansFa;
-  background-color: #ffff80;
-  /* background-color: transparent; */
-  top: 0;
+  background-color: transparent;
   display: block;
   text-align: center;
   transition: transform 0.3s ease-in-out;
   border-radius: 99px;
-  padding: 2px;
   white-space: normal;
   line-height: 1.2em;
-  margin: 5px;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  padding: 4px;
   flex-wrap: nowrap;
 }
 .h3ExpainComplx .secondLine {
@@ -186,38 +196,20 @@
   white-space: nowrap;
   border: 0;
 }
-.divSvEachLevel {
-  width: 100%;
-  min-width: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 0;
-  background-color: transparent;
-  background-color: #8f8d01;
-  overflow: hidden;
-  /* overscroll-behavior: contain; */
-  margin: 5px;
-  padding: 5px;
-  flex: 0 0 100%;
-  margin: 0;
-}
-
 .divSvLessOfLevel {
   background-color: transparent;
-  background-color: #7f7a75e0;
+  background-color: #f6f1e9;
   width: 100%;
   min-width: 0;
-  height: 50vh;
+  height: 60vh;
+  padding: 2px;
+  padding-bottom: 70px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  /* flex: 1; */
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -234,7 +226,7 @@
 
 .divLesG3Gram {
   background-color: transparent;
-  background-color: #99f48d;
+  /* background-color: #99f48d; */
   width: 100%;
   min-width: 0;
   display: flex;
@@ -242,7 +234,6 @@
   justify-content: center;
   align-items: stretch;
   margin: 0;
-  margin-top: 5px;
   margin-bottom: 5px;
   -webkit-overflow-scrolling: touch;
 }
@@ -254,30 +245,35 @@
   justify-content: center;
   text-align: center;
   white-space: normal;
+  line-height: 1.2rem;
 }
-
-.pNamBtnHaSeasson {
-  margin: 0;
-  text-align: center;
+.secondHintLesGraLine {
+  font-family: sansFa;
+  font-size: 10px;
 }
-
 .stylTagGraBtn {
   width: 28%;
   height: auto;
   background-color: #2e323a;
   color: white;
   border: 0;
-  border-top-left-radius: 6vw;
-  border-bottom-left-radius: 6vw;
+  border-top-left-radius: 20vw;
+  border-bottom-left-radius: 20vw;
   padding: 5px 3px;
-  margin: 0 1%;
+  margin: 0;
+  margin-left: 2px;
+  margin-right: 5px;
   /* margin-right: 2%; */
-  box-shadow: 0vw 0.1vw 1vw 0.1vw #505050;
-  padding-right: 48px;
+  box-shadow: 0 1px 2px 1px #505050;
+  /* padding-right: 48px; */
 }
-
+.pNamBtnHaGram {
+  margin: 0;
+  padding: 0;
+  font-size: 15x;
+  /* white-space: nowrap; */
+}
 .stylTagSeasyBtn {
-  position: relative;
   width: 39%;
   height: auto;
   background-color: #ffffff;
@@ -287,31 +283,37 @@
   align-items: center;
   text-align: center;
   border: 1% solid #8f0177;
-  border-top-right-radius: 6vw;
-  border-bottom-right-radius: 6vw;
+  border-top-right-radius: 20vw;
+  border-bottom-right-radius: 20vw;
   padding: 0;
-  margin-right: 4vw;
+  margin-right: 10px;
   box-shadow: 0 1px 2px 1px #505050;
   font-size: 20px;
 }
-
+.clsChngBordBtnLes {
+  border-radius: 20vw;
+  width: 45%;
+}
+.pNamBtnHaSeasson {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  text-align: center;
+  margin-right: 5px;
+}
 .iconPlayLes {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
   color: #ff4145;
   margin: 0;
   padding: 0;
 }
 
 .stylTagG3WdBtn {
-  width: 20%;
+  width: 23%;
   height: auto;
   background-color: #8f0177;
   color: white;
   border: 0;
-  border-radius: 6vw;
+  border-radius: 20vw;
   padding: 0;
   box-shadow: 0 1px 2px 1px #505050;
   text-shadow: 0 1px 1px #1c1c1c;
@@ -319,47 +321,42 @@
 
 .stylLnkLastWatchMain {
   position: static;
-  width: 30%;
+  width: 300px;
   height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: #f2c307;
-  margin: 5px;
-  padding: 3px 3px;
-  border-radius: 8px;
+  margin: 8px;
+  padding: 0;
 }
 .divLastWatchMain {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-
   background-color: rgb(233, 233, 233);
   overflow: hidden;
   border: 1px solid #d7dee0;
   box-shadow: 1px 1px 10px #313133;
-  border-radius: 13px;
+  border-radius: 14px;
   transition:
     transform 200ms ease,
     box-shadow 200ms ease;
 }
 .divLastWatchMain:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(232, 228, 6, 0.52);
 }
 .divLastWatchImgAndTimy {
   position: relative;
   width: 50%;
   height: 100%;
-  padding: 2px;
-  margin: 2px;
-  background-color: turquoise;
+  padding: 3px;
+  margin: 0;
 }
 .divImgLastWatch {
   position: relative;
@@ -370,8 +367,8 @@
 }
 .pLastWatchTime {
   position: absolute;
-  bottom: 3px;
-  right: 3px;
+  bottom: 4px;
+  right: 4px;
   margin: 0;
   padding: 2px 4px;
   font-size: 12px;
@@ -385,12 +382,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: wheat;
+  /* background-color: rgb(211, 154, 47); */
+  width: 50%;
 }
 .pLastWatchTitle1 {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -399,7 +397,8 @@
   padding: 0;
   font-size: 12px;
   font-weight: 400;
-  white-space: nowrap;
+  text-align: center;
+  /* white-space: nowrap; */
 }
 @media only screen and (max-width: 1111px) {
   .pageEachComplxMain {
@@ -422,7 +421,7 @@
 
 /* Phone Portrait */
 @media only screen and (orientation: portrait) and (max-width: 600px) {
-  /* .divLevBtnAndHzSvLev {
+  /* .divSvLessOfLevel {
     height: 60vh;
   } */
   .divSvLessOfLevel::-webkit-scrollbar {
@@ -433,16 +432,17 @@
     flex-direction: column;
   }
   .stylLnkLastWatchMain {
-    background-color: brown;
     position: absolute;
     bottom: 0;
-    width: 90%;
-    height: 23vh;
+    /* height: 23vh; */
   }
 }
 
 /* Phone Landscape */
 @media screen and (min-width: 600px) and (max-height: 600px) {
+  /* .divSvLessOfLevel {
+    height: 60vh;
+  } */
   .divSvLessOfLevel::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -451,10 +451,8 @@
     flex-direction: row;
   }
   .stylLnkLastWatchMain {
-    background-color: rgb(2, 9, 157);
     position: static;
-    width: 30%;
-    height: 50vh;
+    /* height: 50vh; */
   }
 }
 /* Tablet Portrait */
@@ -468,9 +466,7 @@
     flex-direction: column;
   }
   .stylLnkLastWatchMain {
-    background-color: rgb(165, 77, 42);
     position: absolute;
     bottom: 0;
-    width: 70%;
   }
 }

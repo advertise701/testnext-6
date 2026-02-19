@@ -19,6 +19,8 @@ export default function LevelsSliderRunnerClient() {
     let prevTranslate = 0;
     let animationID = 0;
     let currentIndex = 0;
+    let isChang = false;
+    let oldPositonBtLev = 1;
 
     const widdthDivSvEachLevel = slider.querySelector(
       "[data-hor-seekbar='true']",
@@ -26,6 +28,33 @@ export default function LevelsSliderRunnerClient() {
     if (!widdthDivSvEachLevel) return;
 
     const cleanups = [];
+
+    const levelButtons = Array.from(
+      document.querySelectorAll("button[id^='idBtnLevv']"),
+    );
+
+    const goToLevel = (index) => {
+      console.log("--ii--" + index);
+
+      if (index < 0 || index >= slides.length) return;
+      if (index === currentIndex) return;
+      currentIndex = index;
+      isChang = true;
+      setPositionByIndex();
+    };
+
+    levelButtons.forEach((btn, index) => {
+      console.log("--vv--" + index);
+
+      const onClick = () => goToLevel(index);
+      btn.addEventListener("click", onClick);
+
+      cleanups.push(() => {
+        console.log("--ee--" + index);
+
+        btn.removeEventListener("click", onClick);
+      });
+    });
 
     const getPositionX = (event) =>
       event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
@@ -39,6 +68,7 @@ export default function LevelsSliderRunnerClient() {
       currentTranslate = currentIndex * -widdthDivSvEachLevel.offsetWidth;
       prevTranslate = currentTranslate;
       setSliderPosition();
+      chanBackBtn(currentIndex + 1);
     };
 
     const animation = () => {
@@ -64,9 +94,14 @@ export default function LevelsSliderRunnerClient() {
       cancelAnimationFrame(animationID);
 
       const moveBy = currentTranslate - prevTranslate;
-      if (moveBy < -100 && currentIndex < slides.length - 1) currentIndex += 1;
-      if (moveBy > 100 && currentIndex > 0) currentIndex -= 1;
-
+      if (moveBy < -100 && currentIndex < slides.length - 1) {
+        currentIndex += 1;
+        isChang = true;
+      }
+      if (moveBy > 100 && currentIndex > 0) {
+        currentIndex -= 1;
+        isChang = true;
+      }
       setPositionByIndex();
     };
 
@@ -98,6 +133,38 @@ export default function LevelsSliderRunnerClient() {
       });
     });
 
+    // function chanBackBtn(levy = 1) {
+    //   if (isChang) {
+    //     console.log("ssssssssssss");
+
+    //     document.getElementById(`idBtnLevv${levy}`).style.backgroundColor =
+    //       "rgba(0, 188, 212, 0.8)";
+    //     document.getElementById(
+    //       `idBtnLevv${oldPositonBtLev}`,
+    //     ).style.backgroundColor = "rgb(255, 255, 255)";
+    //     oldPositonBtLev = levy;
+    //     isChang = false;
+    //   }
+    // }
+    function chanBackBtn(levy = 1) {
+      if (!isChang) return;
+
+      const newBtn = document.getElementById(`idBtnLevv${levy}`);
+      const oldBtn = document.getElementById(`idBtnLevv${oldPositonBtLev}`);
+
+      if (newBtn) {
+        newBtn.style.backgroundColor = "#8f0177";
+        newBtn.style.color = "#eeeded";
+      }
+
+      if (oldBtn) {
+        oldBtn.style.backgroundColor = "#ffffff";
+        oldBtn.style.color = "#212121";
+      }
+
+      oldPositonBtLev = levy;
+      isChang = false;
+    }
     return () => {
       cancelAnimationFrame(animationID);
       cleanups.forEach((off) => off());

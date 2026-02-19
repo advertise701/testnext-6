@@ -12,7 +12,7 @@ import { CirclePlay } from "lucide-react";
 
 const apiUrl = process.env.API_URL || "https://learningvalley.ir/zzzmvc/api/";
 const API_URL_COMPLEXES = `${apiUrl}getAllComplexesInfo.php`;
-const REVALIDATE_SECONDS = 2; // 10 minutes
+const REVALIDATE_SECONDS = 600; // 10 minutes
 
 async function fetchComplexesInfo() {
   const body = new URLSearchParams({
@@ -205,7 +205,7 @@ export default async function EachComplex({ params }) {
                           <button
                             key={idx}
                             className={styles.btnLevvel}
-                            id={`idLev${idx + 1}`}
+                            id={`idBtnLevv${idx + 1}`}
                             //   onClick={() => btLevel(idx + 1)}
                           >
                             {level}
@@ -352,7 +352,9 @@ export default async function EachComplex({ params }) {
                                             <>
                                               <br />
                                               <span
-                                                className={styles.secondLine}
+                                                className={
+                                                  styles.secondHintLesGraLine
+                                                }
                                               >
                                                 {tGram2}
                                               </span>
@@ -366,7 +368,11 @@ export default async function EachComplex({ params }) {
 
                                     <Link
                                       key={`${eachComplex}season${seasonId || `${idx}${sIdx}`}`}
-                                      className={styles.stylTagSeasyBtn}
+                                      className={`${styles.stylTagSeasyBtn} ${
+                                        ziridGrammarHaRegx[sIdx] === "a"
+                                          ? styles.clsChngBordBtnLes
+                                          : ""
+                                      }`}
                                       href={
                                         "/webapp/language/english/" +
                                         eachComplex +
@@ -381,7 +387,11 @@ export default async function EachComplex({ params }) {
                                         {hasSeassnBoth ? (
                                           <>
                                             <br />
-                                            <span className={styles.secondLine}>
+                                            <span
+                                              className={
+                                                styles.secondHintLesGraLine
+                                              }
+                                            >
                                               {tSeassn2}
                                             </span>
                                           </>
@@ -415,7 +425,9 @@ export default async function EachComplex({ params }) {
                                             <>
                                               <br />
                                               <span
-                                                className={styles.secondLine}
+                                                className={
+                                                  styles.secondHintLesGraLine
+                                                }
                                               >
                                                 {tG3Wd2}
                                               </span>
