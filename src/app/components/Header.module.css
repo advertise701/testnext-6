@@ -133,6 +133,7 @@
   background: #4caf50;
   background: #8f0177;
   font-size: 16px;
+  font-family: sansFa;
 }
 
 @media only screen and (max-width: 800px) {

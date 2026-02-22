@@ -190,16 +190,7 @@
 .h3ExpainComplx .secondLine {
   font-size: 0.7em;
 }
-.h1OnlyForSs {
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+
 .divSvLessOfLevel {
   background-color: transparent;
   background-color: #f6f1e9;
@@ -412,23 +403,13 @@
   .containerEachComplxMain {
     width: 100%;
   }
-  /* .divSvEachLevel {
-    width: 100vw;
+  .stylLnkLastWatchMain {
+    position: static;
   }
-  .h3ExpainComplx {
-    width: 98vw;
-  }
-
-  .divSvLessOfLevel {
-    width: 100vw;
-  } */
 }
 
 /* Phone Portrait */
 @media only screen and (orientation: portrait) and (max-width: 600px) {
-  /* .divSvLessOfLevel {
-    height: 60vh;
-  } */
   .divSvLessOfLevel::-webkit-scrollbar {
     width: 7px;
     height: 7px;
@@ -439,15 +420,11 @@
   .stylLnkLastWatchMain {
     position: absolute;
     bottom: 0;
-    /* height: 23vh; */
   }
 }
 
 /* Phone Landscape */
 @media screen and (min-width: 600px) and (max-height: 600px) {
-  /* .divSvLessOfLevel {
-    height: 60vh;
-  } */
   .divSvLessOfLevel::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -457,7 +434,6 @@
   }
   .stylLnkLastWatchMain {
     position: static;
-    /* height: 50vh; */
   }
 }
 /* Tablet Portrait */
@@ -467,7 +443,6 @@
     height: 9px;
   }
   .divWraperLevelsAndLastWatch {
-    /* width: 100vw; */
     flex-direction: column;
   }
   .stylLnkLastWatchMain {

@@ -5,9 +5,7 @@ export default function Header() {
   return (
     <div className={styles.divHeader}>
       <div className={`${styles.coverHeader} flexy`}>
-        <h1 className={styles.h1Home}>
-          آرتاک | آموزش اصولی زبان انگلیسی با ویدیو
-        </h1>
+        <h1 className={styles.h1Home}>آرتاک | آموزش زبان انگلیسی با ویدیو</h1>
 
         <div className={styles.brandText} aria-label="ArtakVar">
           <span className={styles.brandLetter}>A</span>

@@ -1,4 +1,5 @@
 ﻿import Script from "next/script";
+// import "@/app/globals.css";
 
 export const viewport = {
   width: "device-width",

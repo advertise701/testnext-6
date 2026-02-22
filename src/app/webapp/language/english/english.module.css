@@ -33,11 +33,14 @@
   left: 50%;
   transform: translateX(-50%);
   margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   overflow-y: auto;
   background: #f6f1e9;
   overflow-x: hidden;
-  margin: 0;
-  padding: 0;
 }
 
 .divComplexesMain::-webkit-scrollbar {
@@ -71,6 +74,15 @@
   background-color: transparent;
   margin: 0;
   padding: 0;
+  padding-bottom: 30px;
+}
+
+.h1AllComplexMain {
+  font-family: sansFa;
+  font-size: 17px;
+  padding: 4px;
+  margin: 0;
+  background-color: transparent;
 }
 
 .stylLinkEveryComplexCard {

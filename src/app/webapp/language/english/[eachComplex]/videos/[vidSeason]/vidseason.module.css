@@ -1,0 +1,258 @@
+.pageAllEpsSeasonVids {
+  padding: 0;
+  margin: 0 auto;
+  /* background: linear-gradient(180deg, #ffffff 0%, #e7d404 45%, #d20692 100%); */
+  background-color: white;
+  width: 100vw;
+  max-width: 1111px;
+  height: 100vh;
+}
+
+.containerAllEpsSeasonVids {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow-x: hidden;
+}
+
+.divNavSeasonVidsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 1111px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 40px;
+  margin: 0 auto;
+
+  margin-bottom: 6px;
+  background: #efbf04;
+  padding: 1px 1px;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.pTittlNavSeasonVidsAllEpsMain {
+  font-family: aaa1;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #ef3d00;
+  /* text-transform: uppercase; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.divAllEpsSeasVids {
+  position: fixed;
+  top: 40px;
+  bottom: 10px;
+  width: 100%;
+  max-width: 1111px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background: #f6f1e9;
+  /* background: #56e90c; */
+  overflow: hidden;
+}
+
+.divAllEpsSeasVids2 {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease,
+    max-height 220ms ease;
+  max-height: 9999px;
+  /* background-color: #b58004; */
+  background-color: transparent;
+  margin: 0;
+  padding: 4px;
+  padding-bottom: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.divAllEpsSeasVids2::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+.divAllEpsSeasVids2::-webkit-scrollbar-track {
+  background: #595555;
+}
+.divAllEpsSeasVids2::-webkit-scrollbar-thumb {
+  background: #efbf04;
+}
+
+.stylLinkEvryEpsSeasnVidCard {
+  text-decoration: none;
+  color: inherit;
+  background-color: #d20692;
+  background-color: transparent;
+  display: block;
+  margin: 5px;
+  padding: 0;
+  /* padding: 2px; */
+}
+
+.divEvryEpsSeasnVid {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: rgb(233, 233, 233);
+  /* background-color: rgb(8, 247, 247); */
+  border: 1px solid #d7dee0;
+  box-shadow: 1px 1px 10px #313133;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+  /* width: 300px; */
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.divEvryEpsSeasnVid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.divImgEvryEpsSeasnVid {
+  position: relative;
+  /* width: auto; */
+  /* height: 160px; */
+  background: linear-gradient(135deg, #cddcdf 0%, #e9eff1 100%);
+  width: 220px;
+  aspect-ratio: 14 / 9;
+  /* height: 140px; */
+}
+
+.pNumbEachVidInSeason {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+
+  width: 34px;
+  aspect-ratio: 1 / 1; /* همیشه مربع */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+
+  background: linear-gradient(135deg, #8f0177 0%, #6a005f 50%, #3f0039 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px; /* دایره کامل */
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+.iconWatchTicEachVidInSeason {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d1d1df6;
+  color: #c8c8c8;
+  border-radius: 5vw;
+}
+
+.divMetaVideoInfoInSeason {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 8px;
+  border-radius: 9999px;
+  background: rgba(17, 24, 39, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+
+  color: #f9fafb;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  direction: ltr;
+}
+
+.spMetaDotInSeason {
+  opacity: 0.7;
+}
+
+/* Other Screen Size */
+@media only screen and (max-width: 1111px) {
+  .pageAllEpsSeasonVids {
+    width: 100vw;
+  }
+  .containerAllEpsSeasonVids {
+    width: 100%;
+  }
+  .divImgEvryEpsSeasnVid {
+    width: 200px;
+  }
+}
+
+/* Phone Portrait */
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+  .divAllEpsSeasVids2::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  .divImgEvryEpsSeasnVid {
+    width: 145px;
+  }
+}
+
+/* Phone Landscape */
+@media screen and (min-width: 600px) and (max-height: 600px) {
+  .divAllEpsSeasVids2::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  .divImgEvryEpsSeasnVid {
+    width: 160px;
+  }
+}
+
+/* Tablet Portrait */
+@media only screen and (orientation: portrait) and (min-width: 700px) {
+  .divAllEpsSeasVids2::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  .divImgEvryEpsSeasnVid {
+    width: 190px;
+  }
+}

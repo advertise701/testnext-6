@@ -58,6 +58,7 @@ body::-webkit-scrollbar-thumb {
   margin: 0;
   margin-top: 25px;
   text-align: center;
+  font-family: sansFa;
 }
 
 .divBoxAdvertise {

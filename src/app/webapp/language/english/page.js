@@ -8,18 +8,19 @@ import NavbarWebapp from "@/app/webapp/components/NavbarWebapp";
 
 const apiUrl = process.env.API_URL || "https://learningvalley.ir/zzzmvc/api/";
 const API_URL_COMPLEXES = `${apiUrl}getAllComplexesInfo.php`;
-const REVALIDATE_SECONDS = 600; // 10 minutes
+const REVALIDATE_SECONDS = 5; // 10 minutes
 console.log("--mmmm-");
 
 export async function fetchComplexesInfo() {
   const body = new URLSearchParams({
-    numbery: "09107080900",
-    emailyTriim: "meysamabbasi68gmailcom",
-    timSigny: "1770079419778",
-    advertisId: "7fa0b8e0-04e7-41f7-802b-9465d751850b",
-    manufactur: "samsung",
-    model: "SM-G570F",
-    lastTimeUpdaty: "0",
+    numbery: "09",
+    emailyTriim: "mey",
+    timSigny: "111",
+    advertisId: "7fa",
+    osName: "webappData",
+    manufactur: "s",
+    model: "S",
+    lastTimeUpdaty: 0,
   });
 
   const resComplexes = await fetch(API_URL_COMPLEXES, {
@@ -114,6 +115,10 @@ export default async function EnglishPage() {
         {/* نمایش بخش تمام مجموعه های آموزشی */}
         {Array.isArray(complxesList) && complxesList.length > 0 ? (
           <div className={styles.divComplexesMain}>
+            <h1 className={styles.h1AllComplexMain}>
+              وب‌اپلیکیشن آموزش زبان انگلیسی
+            </h1>
+
             <div className={`${styles.divAllComplx2}`}>
               {complxesList.map((item, idx) => {
                 // console.log("----" + JSON.stringify(item));
