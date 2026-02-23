@@ -11,13 +11,18 @@ const REVALIDATE_SECONDS = 2; // 10 minutes
 async function fetchInfoAllVidSeason(eachComplex, seasonDecresNumber) {
   const body = new URLSearchParams({
     numbery: "09",
-    emailyTriim: "mey",
+    emailyTriim: "artak",
+    emailyFull: "artak@gmail.com",
     timSigny: "111",
-    advertisId: "7fa",
+    serialy: "serryy123",
+    advertisId: "7faass-a5a5a-a556",
     osName: "webappData",
     manufactur: "s",
     model: "S",
-    lastTimeUpdaty: 0,
+    screenWidth: 360,
+    verSdk: 20,
+    nameMarket: "artak",
+    appVerCod: 10,
     idComplx: 2,
     idSeason: seasonDecresNumber,
     usernameComplx: eachComplex,
@@ -82,7 +87,7 @@ export default async function SeasonVideos({ params }) {
   } = await fetchInfoAllVidSeason(eachComplex, seasonDecresNumber);
 
   console.log(status);
-  console.log(complxAllEpsList);
+  // console.log(complxAllEpsList);
 
   if (status === "vv2") {
     notFound();
@@ -109,20 +114,9 @@ export default async function SeasonVideos({ params }) {
           <div className={styles.divAllEpsSeasVids}>
             <div className={`${styles.divAllEpsSeasVids2}`}>
               {complxAllEpsList.map((itemEps, idEpsX) => {
-                console.log("----" + JSON.stringify(itemEps));
-                console.log("----" + idEpsX);
+                // console.log("----" + JSON.stringify(itemEps));
+                // console.log("----" + idEpsX);
 
-                // const explain1Complx =
-                //   itemEps?.explain1Complx ??
-                //   "Learn English with Film and Series";
-
-                // const explain2Complx =
-                //   item?.explain2Complx ?? "آموزش زبان انگلیسی با فیلم و سریال";
-
-                // console.log(explain1Complx + " - " + explain2Complx);
-
-                // const imageUrl = itemEps?.imageLink ?? "";
-                // const usernameComplx = itemEps?.usernameComplx ?? "";
                 const hrefSeasVidsEps = usernameComplx
                   ? `/webapp/language/english/${encodeURIComponent(usernameComplx)}/videos/season-${seasonNumber}/episode-${itemEps?.idEpisodeLes + 1}`
                   : "/webapp/language/english";

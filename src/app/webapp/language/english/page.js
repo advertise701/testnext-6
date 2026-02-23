@@ -14,12 +14,18 @@ console.log("--mmmm-");
 export async function fetchComplexesInfo() {
   const body = new URLSearchParams({
     numbery: "09",
-    emailyTriim: "mey",
+    emailyTriim: "artak",
+    emailyFull: "artak@gmail.com",
     timSigny: "111",
-    advertisId: "7fa",
+    serialy: "serryy123",
+    advertisId: "7faass-a5a5a-a556",
     osName: "webappData",
     manufactur: "s",
     model: "S",
+    screenWidth: 360,
+    verSdk: 20,
+    nameMarket: "artak",
+    appVerCod: 10,
     lastTimeUpdaty: 0,
   });
 
