@@ -1,10 +1,9 @@
-﻿import Script from "next/script";
-// import "@/app/globals.css";
+﻿import { RegistrationProvider } from "@/app/webapp/providers/RegistrationProvider";
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
+// export const viewport = {
+//   width: "device-width",
+//   initialScale: 1,
+// };
 
 // export const metadata = {
 //   metadataBase: new URL(`${baseUrl}`),
@@ -54,5 +53,13 @@ export const viewport = {
 // };
 
 export default function WebappLayout({ children }) {
-  return <div>{children}</div>;
+  console.log("startyyy");
+
+  // return <div>{children}</div>;
+  return (
+    <>
+      {children}
+      <RegistrationProvider />
+    </>
+  );
 }

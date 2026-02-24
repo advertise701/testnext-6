@@ -519,34 +519,3 @@ export default async function EachComplex({ params }) {
     </>
   );
 }
-
-// const apiUrl = process.env.API_URL || "https://learningvalley.ir/zzzmvc/api/";
-// const API_URL_COMPLEXES = `${apiUrl}yBuyOld.php`;
-// const REVALIDATE_SECONDS = 5; // 10 minutes
-
-// async function fetchComplexesInfo() {
-//   const body = new URLSearchParams({
-//     numbery: "09",
-//     emailyTriim: "mey",
-//     emailyFull: "mey",
-//     timSigny: "111",
-//     serialy: "serry556456",
-//     advertisId: "7fasadad-55adad",
-//     osName: "webappData",
-//     manufactur: "s",
-//     model: "S",
-//     screenWidth: 360,
-//     verSdk: 20,
-//     nameMarket: "artak",
-//     appVerCod: 10,
-//     idComplx: 2,
-//   });
-
-//   const resComplexes = await fetch(API_URL_COMPLEXES, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/x-www-form-urlencoded",
-//     },
-//     next: { revalidate: REVALIDATE_SECONDS },
-//     body,
-//   });

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import styles from "./vidseason.module.css";
+import SomeClientComponent from "./ClientVidSeason";
 const apiUrl = process.env.API_URL || "https://learningvalley.ir/zzzmvc/api/";
 const API_URL_COMPLEXES = `${apiUrl}getInfoAllEpisodeSeason.php`;
 const REVALIDATE_SECONDS = 2; // 10 minutes
@@ -111,76 +112,80 @@ export default async function SeasonVideos({ params }) {
         </div>
         {/* نمایش بخش تمام مجموعه های آموزشی */}
         {Array.isArray(complxAllEpsList) && complxAllEpsList.length > 0 ? (
-          <div className={styles.divAllEpsSeasVids}>
-            <div className={`${styles.divAllEpsSeasVids2}`}>
-              {complxAllEpsList.map((itemEps, idEpsX) => {
-                // console.log("----" + JSON.stringify(itemEps));
-                // console.log("----" + idEpsX);
+          <>
+            <div className={styles.divAllEpsSeasVids}>
+              <div className={`${styles.divAllEpsSeasVids2}`}>
+                {complxAllEpsList.map((itemEps, idEpsX) => {
+                  // console.log("----" + JSON.stringify(itemEps));
+                  // console.log("----" + idEpsX);
 
-                const hrefSeasVidsEps = usernameComplx
-                  ? `/webapp/language/english/${encodeURIComponent(usernameComplx)}/videos/season-${seasonNumber}/episode-${itemEps?.idEpisodeLes + 1}`
-                  : "/webapp/language/english";
+                  const hrefSeasVidsEps = usernameComplx
+                    ? `/webapp/language/english/${encodeURIComponent(usernameComplx)}/videos/season-${seasonNumber}/episode-${itemEps?.idEpisodeLes + 1}`
+                    : "/webapp/language/english";
 
-                return (
-                  <Link
-                    key={itemEps?.idEpsCmplx ?? idx}
-                    className={styles.stylLinkEvryEpsSeasnVidCard}
-                    href={hrefSeasVidsEps}
-                    // prefetch={false}
-                    aria-disabled={!usernameComplx}
-                  >
-                    <div className={styles.divEvryEpsSeasnVid}>
-                      <div className={styles.divImgEvryEpsSeasnVid}>
-                        {itemEps?.linkEpisodePic ? (
-                          <Image
-                            priority
-                            src={itemEps?.linkEpisodePic}
-                            alt={
-                              explain2Complx +
-                              "فصل " +
-                              seasonNumber +
-                              "-" +
-                              "قسمت " +
-                              itemEps?.idEpisodeLes +
-                              " , " +
-                              explain1Complx +
-                              "Season " +
-                              seasonNumber +
-                              "-" +
-                              "Episode " +
-                              itemEps?.idEpisodeLes
-                            }
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            style={{ objectFit: "cover" }}
-                          />
-                        ) : null}
-                      </div>
-                      <p className={styles.pNumbEachVidInSeason}>
-                        {idEpsX + 1}
-                      </p>
-                      <span
-                        className={styles.iconWatchTicEachVidInSeason}
-                        aria-label="not-watched"
-                      >
-                        {/* <CheckCircle2 size={48} /> */}
-                        <BadgeCheck size={32} />
-                      </span>
-
-                      <div className={styles.divMetaVideoInfoInSeason}>
-                        <span>{itemEps?.episodeTime ?? "00:00"}</span>
-                        <span className={styles.spMetaDotInSeason}>•</span>
-                        <span>
-                          {Math.round(itemEps?.sizEpisodeKB / 1024) + "MB" ??
-                            "0 MB"}
+                  return (
+                    <Link
+                      key={itemEps?.idEpsCmplx ?? idx}
+                      className={styles.stylLinkEvryEpsSeasnVidCard}
+                      href={hrefSeasVidsEps}
+                      // prefetch={false}
+                      aria-disabled={!usernameComplx}
+                    >
+                      <div className={styles.divEvryEpsSeasnVid}>
+                        <div className={styles.divImgEvryEpsSeasnVid}>
+                          {itemEps?.linkEpisodePic ? (
+                            <Image
+                              priority
+                              src={itemEps?.linkEpisodePic}
+                              alt={
+                                explain2Complx +
+                                "فصل " +
+                                seasonNumber +
+                                "-" +
+                                "قسمت " +
+                                itemEps?.idEpisodeLes +
+                                " , " +
+                                explain1Complx +
+                                "Season " +
+                                seasonNumber +
+                                "-" +
+                                "Episode " +
+                                itemEps?.idEpisodeLes
+                              }
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              style={{ objectFit: "cover" }}
+                            />
+                          ) : null}
+                        </div>
+                        <p className={styles.pNumbEachVidInSeason}>
+                          {idEpsX + 1}
+                        </p>
+                        <span
+                          className={styles.iconWatchTicEachVidInSeason}
+                          aria-label="not-watched"
+                        >
+                          {/* <CheckCircle2 size={48} /> */}
+                          <BadgeCheck size={32} />
                         </span>
+
+                        <div className={styles.divMetaVideoInfoInSeason}>
+                          <span>{itemEps?.episodeTime ?? "00:00"}</span>
+                          <span className={styles.spMetaDotInSeason}>•</span>
+                          <span>
+                            {Math.round(itemEps?.sizEpisodeKB / 1024) + "MB" ??
+                              "0 MB"}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+
+            <SomeClientComponent />
+          </>
         ) : (
           <RetryButton
             subText={"داده‌ای برای نمایش وجود ندارد"}

@@ -50,6 +50,7 @@ export async function fetchComplexesInfo() {
   const complxesList = extractComplexesList(dataComplexes);
   // const complxesList = "a";
   // const status = "vv2";
+
   return { ok: true, status, complxesList };
 }
 const extractComplexesList = (dataComplexes) =>
@@ -66,17 +67,8 @@ const extractComplexesList = (dataComplexes) =>
 // };
 
 export default async function EnglishPage() {
-  const { ok, statusCode, status, complxesList } = await fetchComplexesInfo();
-  console.log(
-    "ok: " +
-      ok +
-      "--" +
-      " statusCode: " +
-      statusCode +
-      "--" +
-      " status: " +
-      status,
-  );
+  const { ok, status, complxesList } = await fetchComplexesInfo();
+  console.log("ok: " + ok + "--" + " status: " + status);
 
   // console.log(" complxesList: " + JSON.stringify(complxesList));
 
